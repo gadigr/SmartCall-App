@@ -1,0 +1,107 @@
+.item.item-divider {
+  border-top: solid 1px rgba(0,0,0,.12);
+  font-size: 6px;
+  font-weight: 700;
+  height: 0;
+  line-height: 0;
+  min-height: 0;
+  padding: 0;
+  color: rgba(0,0,0,.54);
+}
+
+.item-image {
+  padding: 0;
+  height: 100px;
+  text-align: center;
+}
+
+.small {
+  width: 100px;
+  height: 125px;
+}
+
+.item h2{
+  text-align: center;
+}
+
+.items-list {
+  display: inline;
+  align-content: center;
+}
+
+.gallery {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  justify-content: center ;
+}
+
+.item.box {
+  padding: 5px;
+}
+
+.popuplink {
+  text-align: center;
+  margin:5px;
+}
+
+.platform-android .bar .title {
+  text-align: center;
+}
+
+.card-item {
+  width:100px;
+}
+
+.card-title {
+  direction: rtl;
+  text-align: center;
+  padding: 5px;
+  font-size: 1.5em;
+}
+
+/* ------- SEARCH ----*/
+.searchBar {
+  color: #fff;
+  margin: 0 !important;
+  padding: 0;
+}
+.searchBar .icon {
+  font-size: 35px;
+  line-height: 1.2;
+  padding-right: 6px;
+  padding-left: 6px;
+}
+.searchBar .searchTxt {
+  border-bottom: 1px solid #fff;
+  left: 50px;
+  width: calc(100% - 100px);
+  position: fixed;
+  height: 100%;
+}
+.searchBar.numicons2 .searchTxt {
+  width: calc(100% - 90px);
+}
+.searchBar .searchTxt > .bgdiv {
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  /*opacity: 0.3;*/
+}
+
+.searchBar .searchTxt > .bgtxt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  direction: rtl;
+}
+.searchBar .searchTxt input {
+  background-color: inherit;
+  color: #5e5e5e;
+  width: 100%;
+  height: 100%;
+  padding-left: 5px;
+  padding-right:5px;
+}

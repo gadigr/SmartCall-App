@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>SmartCall</title>
+    <link href="https://fonts.googleapis.com/css?family=RobotoDraft%3A400%2C500%2C700%2C400italic" rel="stylesheet">
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="lib/ionic-material/dist/ionic.material.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  <link href="css/overrides.css" rel="stylesheet">
+  <link rel="stylesheet" href="lib/sc-date-time/dist/sc-date-time.css">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-material/dist/ionic.material.min.js"></script>
+   <script src="lib/angular-resource/angular-resource.min.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/DateJS/build/production/date.min.js" ></script>
+    <script src="lib/ngstorage/ngStorage.min.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/services/clients.js"></script>
+    <script src="js/directives/listUtils.js"></script>
+    <script src="js/directives/searchBar.js"></script>
+    <script src="js/controllers/AppCtrl.js"></script>
+    <script src="js/controllers/privateCtrl.js"></script>
+    <script src="js/controllers/publicCtrl.js"></script>
+    <script src="js/controllers/settingsCtrl.js"></script>
+</head>
+<body ng-app="starter">
+    <ion-nav-view></ion-nav-view>
+    <div id="modal" class=""></div>
+</body>
+</html>

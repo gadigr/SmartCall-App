@@ -1,0 +1,17 @@
+
+<ion-view view-title="כל המוקדים">
+  <search-bar ng-model="search"></search-bar>
+  <ion-content>
+    <div class="row gallery" layout layout-wrap layout-align="center" >
+      <div class="card stable-bg ink card-item"  ng-click="showPopup(item)"   ng-repeat="item in items | filter: { name: search.txt }" ng-last-repeat="clientlist" >
+        <div class="box">
+          <img ng-src="{{item.image}}">
+        </div>
+        <div class="item card-title">
+          <a>{{item.name}}</a>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>
