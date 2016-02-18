@@ -18,12 +18,12 @@
     },0);
   };
 
-  $scope.showPopup = function(item) {
+  $scope.showTenantsPopup = function(item) {
     $scope.selectedApp = item;
     var alertPopup = $ionicPopup.alert({
       title: item.name,
       subTitle: "<img src=\'" + item.image +"\' />",
-      templateUrl: "popupTemplate.html",
+      templateUrl: "popupTenantsTemplate.html",
       scope: $scope,
       buttons: [{ // Array[Object] (optional). Buttons to place in the popup footer.
         text: 'חזור',
@@ -34,7 +34,23 @@
       }]
     });
 
-    $scope.sendDetails = function(selectedTenant){
+    $scope.showTimePopup = function(item) {
+      var alertPopup = $ionicPopup.alert({
+        title: $scope.selectedApp.name,
+        subTitle: item.name,
+        templateUrl: "popupTimeTemplate.html",
+        scope: $scope,
+        buttons: [{
+          text: 'חזור',
+          type: 'button-default',
+          onTap: function (e) {
+            return null;
+          }
+        }]
+      });
+    }
+
+      $scope.sendDetails = function(selectedTenant){
       //var phone = $localStorage.myAppData.phone;
       console.log(selectedTenant);
       var phone = "0525675119";
