@@ -1,1 +1,24 @@
-זמנינידגנבם
+<div ng-init="displayEffect()" ng-click="sendDetails(now.setTimeToNow())" class="popuplink ink" data-ink-color="#3f3f3f" data-ink-opacity=".3">
+  <p class="popup-right">
+    כמה שיותר מהר
+  </p>
+</div>
+<div class="popuplink ink" ng-click="sendDetails(now.set({ hour: 19, minute: 00 }))" data-ink-color="#3f3f3f" data-ink-opacity=".3">
+  <span class="popup-left">19:00</span>
+    <p class="popup-right">
+  היום בערב
+      </p>
+</div>
+<div class="popuplink ink" ng-click="sendDetails(now.set({ hour: 8, minute: 30}).add({days:1}))" data-ink-color="#3f3f3f" data-ink-opacity=".3">
+  <span class="popup-left">08:30</span>
+    <p class="popup-right">
+  מחר בבוקר
+      </p>
+</div>
+<ionic-datepicker input-obj="datepickerObject">
+<div class="popuplink ink" data-ink-color="#3f3f3f" data-ink-opacity=".3">
+    <p class="popup-right">
+  בחירת תאריך ושעה
+      </p>
+</div>
+</ionic-datepicker>
