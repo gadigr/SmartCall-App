@@ -2,7 +2,7 @@ angular.module('starter')
   .directive('searchBar', [function () {
     return {
       scope: {
-        ngModel: '='
+        ngModel: '=',
       },
       require: ['^ionNavBar', '?ngModel'],
       restrict: 'E',
@@ -12,10 +12,11 @@ angular.module('starter')
       '<div class="searchTxt" ng-show="ngModel.show">'+
       '<div class="bgdiv"></div>'+
       '<div class="bgtxt">'+
-      '<input type="text" placeholder="הקלד שם בית עסק..." ng-model="ngModel.txt">'+
+      '<input type="text" placeholder="הקלד שם בית עסק..." ng-model="ngModel.txt" ng-change="updateSearch(ngModel.txt)">'+
       '</div>'+
       '</div>'+
-      '<button ng-show="!isPrivate" class="button button-icon button-clear icon" ng-click="ngModel.txt=\'\';ngModel.show=!ngModel.show"></button>'+
+      '<button ng-show="!isPrivate" class="button button-icon button-clear icon" ' +
+	  'ng-click="ngModel.txt=\'\';ngModel.show=!ngModel.show; updateSearch(\'\')"></button>'+
       '</div>'+
       '</ion-nav-buttons>',
 
@@ -34,6 +35,7 @@ angular.module('starter')
       },
       controller: ['$scope','$ionicNavBarDelegate', function($scope,$ionicNavBarDelegate){
         var title, definedClass;
+		//$scope.ngModel.txt = 'י';
         $scope.$watch('ngModel.show', function(showing, oldVal, scope) {
           if(showing!==oldVal) {
             if(showing) {

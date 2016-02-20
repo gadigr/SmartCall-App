@@ -2,6 +2,12 @@
 
   ionicMaterialInk.displayEffect();
 
+  $scope.search = {};
+  
+  $scope.updateSearch = function(txt) {
+	  $scope.search.txt = txt;
+  };
+  
   $scope.$on('$stateChangeSuccess', function() {
 	  function exec() {
 		  $scope.isPrivate = ($state.params.private === 'true');
