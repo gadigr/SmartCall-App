@@ -66,9 +66,10 @@
 
   $scope.showTenantsPopup = function(item) {
     $scope.selectedApp = item;
+	source = item.image ? item.image : '../img/phone.png';
     $scope.TenantsPopup = $ionicPopup.alert({
       title: item.name,
-      subTitle: "<img src=\'" + item.image +"\' />",
+	  subTitle: "<img src=\'" + source +"\' />",
       templateUrl: "popupTenantsTemplate.html",
       scope: $scope,
       buttons: [{ // Array[Object] (optional). Buttons to place in the popup footer.
