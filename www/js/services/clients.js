@@ -6,7 +6,6 @@ angular.module('clientsService', ['ngResource'])
         { method:'GET',
           transformResponse: function (data) {
             var ret =  angular.fromJson(data);
-            console.log(ret);
 
               return ret;
             },

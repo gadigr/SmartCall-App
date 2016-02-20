@@ -15,7 +15,7 @@ angular.module('starter')
       '<input type="text" placeholder="הקלד שם בית עסק..." ng-model="ngModel.txt">'+
       '</div>'+
       '</div>'+
-      '<button class="button button-icon button-clear icon" ng-click="ngModel.txt=\'\';ngModel.show=!ngModel.show"></button>'+
+      '<button ng-show="!isPrivate" class="button button-icon button-clear icon" ng-click="ngModel.txt=\'\';ngModel.show=!ngModel.show"></button>'+
       '</div>'+
       '</ion-nav-buttons>',
 
@@ -42,13 +42,13 @@ angular.module('starter')
                 angular.element($scope.navElement[0].querySelector('.searchBar')).addClass('numicons'+numicons);
               }
 
-              title = $ionicNavBarDelegate.getTitle();
-              $ionicNavBarDelegate.setTitle('');
+              title = $ionicNavBarDelegate.title();
+              $ionicNavBarDelegate.title('');
             } else {
-              $ionicNavBarDelegate.setTitle(title);
+              $ionicNavBarDelegate.title(title);
             }
           } else if (!title) {
-            title = $ionicNavBarDelegate.getTitle();
+            title = $ionicNavBarDelegate.title();
           }
         });
       }]

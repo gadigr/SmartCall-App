@@ -1,6 +1,13 @@
 
-<ion-view view-title="כל המוקדים">
+<ion-view>
+  <ion-nav-title>
+	{{title}}
+  </ion-nav-title>
   <search-bar ng-model="search"></search-bar>
+  <ion-nav-buttons side="primary">
+      <button ng-show="isPrivate" class="button button-clear button-icon ion-android-add"></button>
+      </button>
+    </ion-nav-buttons>
   <ion-content>
     <div class="row gallery" layout layout-wrap layout-align="center" >
       <div class="card stable-bg ink card-item"  ng-click="showTenantsPopup(item)" ng-repeat="item in items | filter: { name: search.txt }" ng-last-repeat="clientlist" >

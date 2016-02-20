@@ -1,7 +1,25 @@
-﻿app.controller('publicCtrl', function ($scope, $ionicPopup, $stateParams, ionicMaterialInk, $timeout, ClientsService, $localStorage) {
+﻿app.controller('publicCtrl', function ($scope, $ionicPopup, $state, ionicMaterialInk, $timeout, ClientsService, $localStorage) {
 
   ionicMaterialInk.displayEffect();
 
+  $scope.$on('$stateChangeSuccess', function() {
+	  function exec() {
+		  $scope.isPrivate = ($state.params.private === 'true');
+		  if ($scope.isPrivate) {
+			  $scope.title = 'מוקדים פרטיים';
+		  } else {
+			  $scope.title = 'כל המוקדים';
+		  }
+	  }
+	  
+	  if (!$scope.$$phase) {
+		  $scope.$apply(exec);
+	  } else {
+		  exec();
+	  }
+	  
+  });
+  
   $scope.datepickerObject = {
     titleLabel: 'בחירת תאריך',  //Optional
     todayLabel: 'היום',  //Optional

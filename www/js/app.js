@@ -42,37 +42,16 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         controller: 'AppCtrl'
     })
 
-      .state('app.public_clients', {
-        url: '/public_clients',
+      .state('app.clients', {
+        url: '/clients/:private',
         views: {
           'menuContent': {
             templateUrl: 'templates/public_clients.html',
             controller: 'publicCtrl'
           }
         }
-      })
-
-      .state('app.private_clients', {
-        url: '/private_clients',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/private_clients.html',
-            controller: 'privateCtrl'
-          }
-        }
-      })
-
-      .state('app.settings', {
-        url: '/settings',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/settings.html',
-            controller: 'settingsCtrl'
-          }
-        }
-      })
-    ;
+      });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/public_clients');
+    $urlRouterProvider.otherwise('/app/clients/false');
 });
