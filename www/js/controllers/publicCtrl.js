@@ -160,7 +160,30 @@
           console.log(thrownError);
         }
       });
-
+	  
+	  $.ajax({
+		  type: "GET",
+		  url: 'https://smartcall-management.firebaseio.com/logs.json',
+		  success: function(data) {
+			  $.ajax({
+				  type: "PUT",
+				  url: 'https://smartcall-management.firebaseio.com/logs/' + data.length + '.json',
+				  data: JSON.stringify({
+					  appID: $scope.selectedApp.appID,
+					  appName: $scope.selectedApp.name,
+					  phone: phone,
+					  tenantName: $scope.selectedTenant.name,
+					  when: (new Date()).valueOf()
+				  }),
+				  success: function() {
+					  console.log('Successfully logged request!');
+				  },
+				  error: function(jqXHR, ajaxOptions, thrownError) {
+					  console.log('Error logging request: ', thrownError);
+				  }
+			  });
+		  }
+	  });
     }
 
     $timeout(function() {
