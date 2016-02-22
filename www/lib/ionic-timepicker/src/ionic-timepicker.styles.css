@@ -8,6 +8,11 @@
 
 .timePickerArrows {
   width: 100%;
+  padding: 0;
+}
+
+.timePickerChildDiv{
+  direction: ltr;
 }
 
 .timePickerBoxText {
@@ -21,3 +26,4 @@
 .overflowShow {
   white-space: normal !important;
 }
+

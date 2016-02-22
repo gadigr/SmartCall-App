@@ -86,106 +86,107 @@
         };
 
         //onclick of the button
-        element.on("click", function () {
+        scope.$on('showTimePopup',function (event, data) {
           if (typeof scope.inputObj.inputEpochTime === 'undefined' || scope.inputObj.inputEpochTime === null) {
             objDate = new Date();
           } else {
             objDate = new Date(scope.inputObj.inputEpochTime * 1000);
           }
+          //if (scope.inputObj.showPopup) {
+            if (obj.format == 12) {
+              scope.time.meridian = (objDate.getUTCHours() >= 12) ? "PM" : "AM";
+              scope.time.hours = (objDate.getUTCHours() > 12) ? ((objDate.getUTCHours() - 12)) : (objDate.getUTCHours());
+              scope.time.minutes = (objDate.getUTCMinutes());
 
-          if (obj.format == 12) {
-            scope.time.meridian = (objDate.getUTCHours() >= 12) ? "PM" : "AM";
-            scope.time.hours = (objDate.getUTCHours() > 12) ? ((objDate.getUTCHours() - 12)) : (objDate.getUTCHours());
-            scope.time.minutes = (objDate.getUTCMinutes());
+              scope.time.hours = (scope.time.hours < 10) ? ("0" + scope.time.hours) : (scope.time.hours);
+              scope.time.minutes = (scope.time.minutes < 10) ? ("0" + scope.time.minutes) : (scope.time.minutes);
 
-            scope.time.hours = (scope.time.hours < 10) ? ("0" + scope.time.hours) : (scope.time.hours);
-            scope.time.minutes = (scope.time.minutes < 10) ? ("0" + scope.time.minutes) : (scope.time.minutes);
+              if (scope.time.hours === 0 && scope.time.meridian === "AM") {
+                scope.time.hours = 12;
+              }
 
-            if (scope.time.hours === 0 && scope.time.meridian === "AM") {
-              scope.time.hours = 12;
+              $ionicPopup.show({
+                templateUrl: 'ionic-timepicker-12-hour.html',
+                title: scope.titleLabel,
+                subTitle: '',
+                scope: scope,
+                buttons: [
+                  {
+                    text: scope.closeLabel,
+                    type: scope.closeButtonType,
+                    onTap: function (e) {
+                      scope.inputObj.callback(undefined);
+                    }
+                  },
+                  {
+                    text: scope.setLabel,
+                    type: scope.setButtonType,
+                    onTap: function (e) {
+                      scope.loadingContent = true;
+
+                      var totalSec = 0;
+
+                      if (scope.time.hours != 12) {
+                        totalSec = (scope.time.hours * 60 * 60) + (scope.time.minutes * 60);
+                      } else {
+                        totalSec = scope.time.minutes * 60;
+                      }
+
+                      if (scope.time.meridian === "AM") {
+                        totalSec += 0;
+                      } else if (scope.time.meridian === "PM") {
+                        totalSec += 43200;
+                      }
+                      scope.etime = totalSec;
+                      scope.inputObj.callback(scope.etime);
+                    }
+                  }
+                ]
+              });
+
+            } else if (obj.format == 24) {
+
+              scope.time.hours = (objDate.getUTCHours());
+              scope.time.minutes = (objDate.getUTCMinutes());
+
+              scope.time.hours = (scope.time.hours < 10) ? ("0" + scope.time.hours) : (scope.time.hours);
+              scope.time.minutes = (scope.time.minutes < 10) ? ("0" + scope.time.minutes) : (scope.time.minutes);
+
+              $ionicPopup.show({
+                templateUrl: 'ionic-timepicker-24-hour.html',
+                title: scope.titleLabel,
+                subTitle: '',
+                scope: scope,
+                buttons: [
+                  {
+                    text: scope.closeLabel,
+                    type: scope.closeButtonType,
+                    onTap: function (e) {
+                      scope.inputObj.callback(undefined);
+                    }
+                  },
+                  {
+                    text: scope.setLabel,
+                    type: scope.setButtonType,
+                    onTap: function (e) {
+
+                      scope.loadingContent = true;
+
+                      var totalSec = 0;
+
+                      if (scope.time.hours != 24) {
+                        totalSec = (scope.time.hours * 60 * 60) + (scope.time.minutes * 60);
+                      } else {
+                        totalSec = scope.time.minutes * 60;
+                      }
+                      scope.etime = totalSec;
+                      scope.inputObj.callback(scope.etime);
+                    }
+                  }
+                ]
+              });
             }
-
-            $ionicPopup.show({
-              templateUrl: 'ionic-timepicker-12-hour.html',
-              title: scope.titleLabel,
-              subTitle: '',
-              scope: scope,
-              buttons: [
-                {
-                  text: scope.closeLabel,
-                  type: scope.closeButtonType,
-                  onTap: function (e) {
-                    scope.inputObj.callback(undefined);
-                  }
-                },
-                {
-                  text: scope.setLabel,
-                  type: scope.setButtonType,
-                  onTap: function (e) {
-                    scope.loadingContent = true;
-
-                    var totalSec = 0;
-
-                    if (scope.time.hours != 12) {
-                      totalSec = (scope.time.hours * 60 * 60) + (scope.time.minutes * 60);
-                    } else {
-                      totalSec = scope.time.minutes * 60;
-                    }
-
-                    if (scope.time.meridian === "AM") {
-                      totalSec += 0;
-                    } else if (scope.time.meridian === "PM") {
-                      totalSec += 43200;
-                    }
-                    scope.etime = totalSec;
-                    scope.inputObj.callback(scope.etime);
-                  }
-                }
-              ]
-            });
-
-          } else if (obj.format == 24) {
-
-            scope.time.hours = (objDate.getUTCHours());
-            scope.time.minutes = (objDate.getUTCMinutes());
-
-            scope.time.hours = (scope.time.hours < 10) ? ("0" + scope.time.hours) : (scope.time.hours);
-            scope.time.minutes = (scope.time.minutes < 10) ? ("0" + scope.time.minutes) : (scope.time.minutes);
-
-            $ionicPopup.show({
-              templateUrl: 'ionic-timepicker-24-hour.html',
-              title: scope.titleLabel,
-              subTitle: '',
-              scope: scope,
-              buttons: [
-                {
-                  text: scope.closeLabel,
-                  type: scope.closeButtonType,
-                  onTap: function (e) {
-                    scope.inputObj.callback(undefined);
-                  }
-                },
-                {
-                  text: scope.setLabel,
-                  type: scope.setButtonType,
-                  onTap: function (e) {
-
-                    scope.loadingContent = true;
-
-                    var totalSec = 0;
-
-                    if (scope.time.hours != 24) {
-                      totalSec = (scope.time.hours * 60 * 60) + (scope.time.minutes * 60);
-                    } else {
-                      totalSec = scope.time.minutes * 60;
-                    }
-                    scope.etime = totalSec;
-                    scope.inputObj.callback(scope.etime);
-                  }
-                }
-              ]
-            });
-          }
+          //}
         });
       }
     };

@@ -8,7 +8,7 @@ var css2js = require("gulp-css2js");
 
 gulp.task('html2js', function () {
   return gulp.src(['./src/*.html'])
-    .pipe(minifyHtml())
+    //.pipe(minifyHtml())
     .pipe(ngHtml2Js({
       moduleName: "ionic-timepicker.templates"
     }))
@@ -27,7 +27,7 @@ gulp.task('css2js', function () {
 gulp.task('make-bundle', ['del', 'html2js', 'css2js'], function () {
   return gulp.src(['dist/*', './src/*.js'])
     .pipe(concat('ionic-timepicker.bundle.min.js'))
-    .pipe(uglify())
+    //.pipe(uglify())
     .pipe(gulp.dest('dist/'));
 });
 

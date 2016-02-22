@@ -280,8 +280,10 @@
           scope.modal.hide();
         };
 
+
+
         //Called when the user clicks on the button to invoke the 'ionic-datepicker'
-        element.on("click", function () {
+        scope.popup = function () {
           if (scope.date_selection.selectedDate) {
             refreshDateList(scope.date_selection.selectedDate);
           } else if (scope.ipDate) {
@@ -324,6 +326,12 @@
               ]
             });
           }
+        };
+
+        element.on("click", scope.popup());
+
+        scope.$on('showDatePopup',function (event, data) {
+          scope.popup();
         });
       }
     };

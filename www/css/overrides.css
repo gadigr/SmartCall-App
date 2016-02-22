@@ -62,6 +62,33 @@
   font-size: 1.5em;
 }
 
+.popup-buttons {
+  direction: rtl;
+  flex-wrap: wrap;
+}
+
+.popup-buttons .button {
+  direction: rtl;
+  padding: 0;
+  margin-right: 5px!important;
+}
+
+.popup-buttons .button:first-child {
+  margin-right: 0px!important;
+}
+
+.right_arrow {
+  margin-top: 15px;
+}
+
+.popup.button {
+  text-align: center;
+}
+
+.left_arrow {
+  margin-top: 15px;
+}
+
 /* ------- SEARCH ----*/
 .searchBar {
   color: #fff;

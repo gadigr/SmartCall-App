@@ -1,13 +1,13 @@
-﻿app.controller('publicCtrl', function ($scope, $ionicPopup, $state, ionicMaterialInk, $timeout, ClientsService, $localStorage) {
+﻿app.controller('publicCtrl', function ($scope, $rootScope, $ionicPopup, $state, ionicMaterialInk, $timeout, ClientsService, $localStorage) {
 
   ionicMaterialInk.displayEffect();
 
   $scope.search = {};
-  
+
   $scope.updateSearch = function(txt) {
 	  $scope.search.txt = txt;
   };
-  
+
   $scope.$on('$stateChangeSuccess', function() {
 	  function exec() {
 		  $scope.isPrivate = ($state.params.private === 'true');
@@ -17,19 +17,42 @@
 			  $scope.title = 'כל המוקדים';
 		  }
 	  }
-	  
+
 	  if (!$scope.$$phase) {
 		  $scope.$apply(exec);
 	  } else {
 		  exec();
 	  }
-	  
+
   });
-  
+
+  $scope.timePickerObject = {
+    inputEpochTime: ((new Date()).getHours() * 60 * 60),  //Optional
+    step: 15,  //Optional
+    format: 24,  //Optional
+    titleLabel: 'בחירת שעה',  //Optional
+    setLabel: 'בחר',  //Optional
+    closeLabel: 'חזור',  //Optional
+    setButtonType: 'button-positive',  //Optional
+    closeButtonType: 'button-stable',  //Optional
+    callback: function (val) {    //Mandatory
+      if (val) {
+        time =  new Date(val * 1000);
+        var dt  = Date.parse( $scope.selectedDate)
+        dt.set({hour: time.getUTCHours(), minute: time.getUTCMinutes()});
+        console.log(dt);
+        $scope.sendDetails(dt);
+      }
+      else {
+        $rootScope.$broadcast('showDatePopup',{});
+      }
+    }
+  };
+
   $scope.datepickerObject = {
     titleLabel: 'בחירת תאריך',  //Optional
     todayLabel: 'היום',  //Optional
-    closeLabel: 'סגור',  //Optional
+    closeLabel: 'חזור',  //Optional
     setLabel: 'בחר',  //Optional
     setButtonType : 'button-assertive',  //Optional
     todayButtonType : 'button-assertive',  //Optional
@@ -42,9 +65,16 @@
     showTodayButton: 'true', //Optional
     modalHeaderColor: 'bar-positive', //Optional
     modalFooterColor: 'bar-positive', //Optional
-    from: new Date(), //Optional
+    from: Date.today().setTimeToNow().add({days:-1}), //Optional
     callback: function (val) {  //Mandatory
-      $scope.selectedDate = val;פ
+      if (val){
+        $scope.selectedDate = val;
+        console.log($scope.selectedDate);
+        $rootScope.$broadcast('showTimePopup',{});
+      }
+      else {
+        return ;
+      }
     },
     dateFormat: 'dd-MM-yyyy', //Optional
     closeOnSelect: false, //Optional
@@ -82,7 +112,7 @@
     });
 
     $scope.showTimePopup = function(item) {
-      $scope.now = Date.today().setTimeToNow();;
+      $scope.now = Date.today().setTimeToNow();
       console.log($scope.now);
       $scope.selectedTenant = item;
       $scope.displayEffect =  ionicMaterialInk.displayEffect;

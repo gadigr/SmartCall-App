@@ -5,7 +5,7 @@
          ng-class="{'pointer_events_none':(enableDatesFrom.isSet && enableDatesFrom.epoch > currentMonthFirstDayEpoch)}">
       <button class="button-clear"
               ng-class="{'color_blue':((enableDatesFrom.isSet && enableDatesFrom.epoch < currentMonthFirstDayEpoch) || (!enableDatesFrom.isSet))}">
-        <i class="icon ion-chevron-left"></i>
+        <i class="icon ion-chevron-right"></i>
       </button>
     </div>
     <div class="col col-80 drop_down no_padding">
@@ -38,7 +38,7 @@
          ng-class="{'pointer_events_none':(enableDatesTo.isSet && enableDatesTo.epoch < currentMonthLastDayEpoch)}">
       <button class="button-clear"
               ng-class="{'color_blue':((enableDatesTo.isSet && enableDatesTo.epoch > currentMonthLastDayEpoch) || (!enableDatesTo.isSet))}">
-        <i class="icon ion-chevron-right"></i>
+        <i class="icon ion-chevron-left"></i>
       </button>
     </div>
   </div>
