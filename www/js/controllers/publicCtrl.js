@@ -1,4 +1,4 @@
-﻿app.controller('publicCtrl', function ($scope, $rootScope, $ionicPopup, $state, ionicMaterialInk, $timeout, ClientsService, $localStorage) {
+﻿app.controller('publicCtrl', function ($scope, $cordovaToast, $rootScope, $ionicPopup, $state, ionicMaterialInk, $timeout, ClientsService, $localStorage) {
 
   ionicMaterialInk.displayEffect();
 
@@ -149,6 +149,12 @@
         data: xmlData,
         success: function (jqXHR) {
           alert('Success');
+
+          $cordovaToast.show("הבקשה נקלטה - נחזור אליך בהקדם", 3000, "bottom").then(function(success) {
+            console.log("The toast was shown");
+          }, function (error) {
+            console.log("The toast was not shown due to " + error);
+          });
         },
         error: function (jqXHR, ajaxOptions, thrownError) {
           //alert('שגיאה:\r\n' + jqXHR.responseText);
