@@ -5,7 +5,7 @@
   </ion-nav-title>
   <search-bar ng-model="search"></search-bar>
   <ion-nav-buttons side="primary">
-      <button ng-show="isPrivate" class="button button-clear button-icon ion-android-add"></button>
+      <button ng-show="isPrivate" class="button button-clear button-icon ion-android-add" ng-click="addPrivateApp()"></button>
       </button>
     </ion-nav-buttons>
   <ion-content>
@@ -18,6 +18,7 @@
           <a>{{item.name}}</a>
         </div>
       </div>
+	  <p ng-show="items && items.length <= 0">לא קיימים מוקדים להצגה</p>
     </div>
 
   </ion-content>

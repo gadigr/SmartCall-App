@@ -3,7 +3,29 @@
   ionicMaterialInk.displayEffect();
 
   $scope.search = {};
-
+  
+  $scope.addPrivateApp = function() {
+	 nCode = prompt('הכנס קוד מוקד פרטי:');
+	 if (nCode) {
+		 ClientsService.getData(function (data) {
+			 newItem = data.filter(function(item) {
+				 return (item.privateCode == nCode);
+			 })[0];
+			 
+			 if (newItem) {
+				 privateApps = localStorage.privateApps ? JSON.parse(localStorage.privateApps) : [];
+				 if (privateApps.indexOf(newItem.privateCode) < 0) {
+					 $scope.items.push(newItem);
+					 privateApps.push(newItem.privateCode);
+					 localStorage.privateApps = JSON.stringify(privateApps);
+				 }
+			 } else {
+				 alert('לא נמצא מוקד פרטי מתאים');
+			 }
+		 });
+	 }
+  };
+  
   $scope.updateSearch = function(txt) {
 	  $scope.search.txt = txt;
   };
@@ -81,7 +103,15 @@
   };
 
   ClientsService.getData(function (data) {
-    $scope.items = data;
+	if (!$scope.isPrivate) {
+		$scope.items = data.filter(function(item) {
+			return (!item.privateCode);
+		});
+	} else {
+		$scope.items = data.filter(function(item) {
+			return ((item.privateCode) && ((localStorage.privateApps) && (JSON.parse(localStorage.privateApps).indexOf(item.privateCode) >= 0)));
+		});
+	}
   });
 
   $scope.$on('ngLastRepeat.clientlist',function(e) {
