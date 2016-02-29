@@ -62,6 +62,10 @@
   font-size: 1.5em;
 }
 
+ion-slides {
+  direction: rtl;
+}
+
 .popup-buttons {
   direction: rtl;
   flex-wrap: wrap;

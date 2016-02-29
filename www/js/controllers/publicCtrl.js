@@ -1,9 +1,9 @@
-﻿app.controller('publicCtrl', function ($scope, $cordovaToast, $rootScope, $ionicPopup, $state, ionicMaterialInk, $timeout, ClientsService, $localStorage) {
+﻿app.controller('publicCtrl', function ($scope, $rootScope, $ionicPopup, $state, ionicMaterialInk, $timeout, ClientsService, $localStorage) {
 
   ionicMaterialInk.displayEffect();
 
   $scope.search = {};
-  
+
   $scope.addPrivateApp = function() {
 	 nCode = prompt('הכנס קוד מוקד פרטי:');
 	 if (nCode) {
@@ -11,7 +11,7 @@
 			 newItem = data.filter(function(item) {
 				 return (item.privateCode == nCode);
 			 })[0];
-			 
+
 			 if (newItem) {
 				 privateApps = localStorage.privateApps ? JSON.parse(localStorage.privateApps) : [];
 				 if (privateApps.indexOf(newItem.privateCode) < 0) {
@@ -25,7 +25,7 @@
 		 });
 	 }
   };
-  
+
   $scope.updateSearch = function(txt) {
 	  $scope.search.txt = txt;
   };
@@ -178,25 +178,22 @@
         url: 'https://sec-phoneplus.com/DistributionWebService/DialerDistribution.asmx/ImportFromXml',
         data: xmlData,
         success: function (jqXHR) {
-          alert('Success');
 
-          $cordovaToast.show("הבקשה נקלטה - נחזור אליך בהקדם", 3000, "bottom").then(function(success) {
-            console.log("The toast was shown");
-          }, function (error) {
-            console.log("The toast was not shown due to " + error);
-          });
+          alert('הבקשה התקבלה - נחזור אליך בהקדם');
+
         },
         error: function (jqXHR, ajaxOptions, thrownError) {
           //alert('שגיאה:\r\n' + jqXHR.responseText);
           //alert('2: '+ ajaxOptions);
           //alert('3: '+ thrownError);
 
+          alert('התרחשה שגיאה - אנא נסה שנית מאוחר יותר');
           console.log(jqXHR);
           console.log(ajaxOptions);
           console.log(thrownError);
         }
       });
-	  
+
 	  $.ajax({
 		  type: "GET",
 		  url: 'https://smartcall-management.firebaseio.com/logs.json',

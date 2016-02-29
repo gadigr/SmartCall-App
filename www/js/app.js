@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var app = angular.module('starter', ['ionic', 'ngCordova', 'ionic-material', 'clientsService', 'ngStorage', 'ionic-datepicker', 'ionic-timepicker']);
+var app = angular.module('starter', ['ionic', 'ionic.wizard', 'ionic-material', 'clientsService', 'ngStorage', 'ionic-datepicker', 'ionic-timepicker']);
 
 app.run(function ($ionicPlatform, $ionicPopup) {
     $ionicPlatform.ready(function () {
@@ -33,15 +33,34 @@ app.run(function ($ionicPlatform, $ionicPopup) {
 })
 
 app.config(function ($stateProvider, $urlRouterProvider) {
-    $stateProvider
+  // set default route to wizard
+  var defaultRoute = '/app/intro';
 
+  // check whether wizard has been run in order to change default route
+  // we cannot inject ngStorage dependency in a config module, so we need to use plain localStorage object
+  if (localStorage.getItem('ngStorage-myAppRun')) {
+    console.log('wizard has been run - skip!');
+    defaultRoute = '/app/clients/false';
+  }
+
+
+    $stateProvider
     .state('app', {
         url: '/app',
         abstract: true,
         templateUrl: 'templates/menu.html',
         controller: 'AppCtrl'
     })
+      .state('app.intro', {
+        url: '/intro',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/intro.html',
+            controller: 'IntroCtrl'
+          }
+        }
 
+      })
       .state('app.clients', {
         url: '/clients/:private',
         views: {
@@ -53,5 +72,5 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/clients/false');
+    $urlRouterProvider.otherwise(defaultRoute);
 });

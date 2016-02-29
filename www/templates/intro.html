@@ -1,0 +1,40 @@
+<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear " ion-wizard-start="start()">
+            סיום
+        </button>
+    </ion-nav-buttons>
+    <ion-slides options="swiperOptions" slider="swiper" ion-wizard>
+        <ion-slide-page ion-wizard-step class="has-header">
+          <div class="row">
+            <div class="col col-center">
+              <h3 class="positive text-center">ברוך הבא ל-SmartCall</h3>
+              <h4>אנא הזן את מספר הטלפון שלך</h4>
+              <p>אנחנו מבטיחים שלעולם לא נשתמש במספר זה לרעה</p>
+              <div class="item item-input-inset">
+                <label class="item item-input-wrapper">
+                  <input type="tel" ng-model="step2.phone"autocomplete="off" ng-disabled="showVerify">
+                </label>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col col-center text-center">
+              <button class="button center fill text-center" ng-click="sendSMS(step2.phone)" ng-show="step2.phone">{{button}}</button>
+              </div>
+          </div>
+
+          <div class="row" ng-show="showVerify">
+            <div class="col col-center text-center">
+            <h4>הזן קוד אימות</h4>
+              <label class="item item-input-wrapper">
+                <input type="tel" ng-model="step2.ver"autocomplete="off">
+              </label>
+              <button class="button center fill text-center" ng-click="verifyNumber(step2.ver)" ng-show="step2.phone">סיום</button>
+            </div>
+          </div>
+        </ion-slide-page>
+    </ion-slides>
+
+</ion-view>
