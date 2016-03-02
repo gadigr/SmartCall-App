@@ -105,7 +105,7 @@
   ClientsService.getData(function (data) {
 	if (!$scope.isPrivate) {
 		$scope.items = data.filter(function(item) {
-			return (!item.privateCode);
+			return (item.isPublic);
 		});
 	} else {
 		$scope.items = data.filter(function(item) {
