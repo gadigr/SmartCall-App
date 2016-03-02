@@ -48,6 +48,10 @@
 
   });
 
+  $scope.openDatePicker = function() {
+    $rootScope.$broadcast('showDatePopup',{});
+  }
+
   $scope.timePickerObject = {
     inputEpochTime: ((new Date()).getHours() * 60 * 60),  //Optional
     step: 15,  //Optional
@@ -181,13 +185,24 @@
 
           alert('הבקשה התקבלה - נחזור אליך בהקדם');
 
+          $ionicPopup.show({
+            title: 'הבקשה התקבלה',
+            template: 'נחזור אליך בהקדם',
+            buttons: [
+              { text: 'אישור' }
+            ]
+          });
+
         },
         error: function (jqXHR, ajaxOptions, thrownError) {
-          //alert('שגיאה:\r\n' + jqXHR.responseText);
-          //alert('2: '+ ajaxOptions);
-          //alert('3: '+ thrownError);
 
-          alert('התרחשה שגיאה - אנא נסה שנית מאוחר יותר');
+          $ionicPopup.alert({
+            title: 'התרחשה שגיאה',
+            template: '<span class="alert-text">נסה שנית במועד מאוחר יותר</span>',
+            buttons: [
+              { text: 'אישור' }
+            ]
+          });
           console.log(jqXHR);
           console.log(ajaxOptions);
           console.log(thrownError);
@@ -220,7 +235,6 @@
     }
 
     $timeout(function() {
-      //ionic.material.ink.displayEffect();
       ionicMaterialInk.displayEffect();
     }, 0);
   };

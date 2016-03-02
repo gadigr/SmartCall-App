@@ -328,7 +328,7 @@
           }
         };
 
-        element.on("click", scope.popup());
+        //element.on("click", scope.popup());
 
         scope.$on('showDatePopup',function (event, data) {
           scope.popup();
