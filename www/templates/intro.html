@@ -11,17 +11,17 @@
               <h3 class="positive text-center">ברוך הבא ל-SmartCall</h3>
               <h4>אנא הזן את מספר הטלפון שלך</h4>
               <p>אנחנו מבטיחים שלעולם לא נשתמש במספר זה לרעה</p>
-              <div class="item item-input-inset">
-                <label class="item item-input-wrapper">
-                  <input type="tel" ng-model="step2.phone"autocomplete="off" ng-disabled="showVerify">
+              <div class="item item-input-inset" ng-form name="phoneForm">
+                <label class="item item-input-wrapper" >
+                  <input type="tel" ng-model="step2.phone" autocomplete="off" name="number"  ng-pattern="regex" >
                 </label>
               </div>
             </div>
-
           </div>
+
           <div class="row">
             <div class="col col-center text-center">
-              <button class="button center fill text-center" ng-click="sendSMS(step2.phone)" ng-show="step2.phone">{{button}}</button>
+              <button class="button center fill text-center" ng-click="sendSMS(step2.phone)" ng-show="phoneForm.number.$valid && step2.phone.length > 1">{{button}}</button>
               </div>
           </div>
 

@@ -3,13 +3,15 @@ app.controller('IntroCtrl', function($scope, $state, $localStorage) {
   $scope.button = "שלח SMS לאימות";
   $scope.step2 = {};
 
+  $scope.regex = "^0[0-9]{9}$";
+
   function persistWizardData() {
     // set flag to indicate wizard has been run
     $localStorage.myAppRun = true;
 
     // save additional data
     $localStorage.myAppData = {
-      phone: $scope.step2.phone,
+      phone: $scope.step2.phone, 
     };
   }
 
