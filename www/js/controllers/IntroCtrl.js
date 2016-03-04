@@ -1,4 +1,4 @@
-app.controller('IntroCtrl', function($scope, $state, $localStorage) {
+app.controller('IntroCtrl', function($scope, $state,$window, $localStorage) {
   // here we store wizard data
   $scope.button = "שלח SMS לאימות";
   $scope.step2 = {};
@@ -11,7 +11,7 @@ app.controller('IntroCtrl', function($scope, $state, $localStorage) {
 
     // save additional data
     $localStorage.myAppData = {
-      phone: $scope.step2.phone, 
+      phone: $scope.step2.phone,
     };
   }
 
@@ -24,7 +24,7 @@ app.controller('IntroCtrl', function($scope, $state, $localStorage) {
     }
     else {
       $scope.showVerify = false;
-      $scope.button = "שלח SMS לאימות";
+      $scope.button = "שלח SMS בשנית";
     }
   }
 
@@ -33,10 +33,20 @@ app.controller('IntroCtrl', function($scope, $state, $localStorage) {
 
     if (true)
     {
-      persistWizardData();
-
-      $state.go('app.clients');
+      $scope.start();
     }
+  }
+
+  $scope.start = function() {
+    persistWizardData();
+
+    //$state.go('app.clients', {}, {reload:true});
+    $window.location.reload();
+    $state.transitionTo('app.clients', {}, {
+      reload: true,
+      inherit: false,
+      notify: true
+    });
   }
 
 })

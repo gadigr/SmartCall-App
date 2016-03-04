@@ -1,8 +1,6 @@
 <ion-view>
     <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear " ion-wizard-start="start()">
-            סיום
-        </button>
+
     </ion-nav-buttons>
     <ion-slides options="swiperOptions" slider="swiper" ion-wizard>
         <ion-slide-page ion-wizard-step class="has-header">
@@ -13,7 +11,7 @@
               <p>אנחנו מבטיחים שלעולם לא נשתמש במספר זה לרעה</p>
               <div class="item item-input-inset" ng-form name="phoneForm">
                 <label class="item item-input-wrapper" >
-                  <input type="tel" ng-model="step2.phone" autocomplete="off" name="number"  ng-pattern="regex" >
+                  <input type="tel" ng-model="step2.phone" autocomplete="off" name="number" ng-disabled="showVerify"  ng-pattern="regex" >
                 </label>
               </div>
             </div>
@@ -34,7 +32,7 @@
               <button class="button center fill text-center" ng-click="verifyNumber(step2.ver)" ng-show="step2.phone">סיום</button>
             </div>
           </div>
-        </ion-slide-page>
+</ion-slide-page>
     </ion-slides>
 
 </ion-view>
