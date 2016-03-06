@@ -10,9 +10,9 @@
               <h4>אנא הזן את מספר הטלפון שלך</h4>
               <p>אנחנו מבטיחים שלעולם לא נשתמש במספר זה לרעה</p>
               <div class="item item-input-inset" ng-form name="phoneForm">
-                <label class="item item-input-wrapper" >
-                  <input type="tel" ng-model="step2.phone" autocomplete="off" name="number" ng-disabled="showVerify"  ng-pattern="regex" >
-                </label>
+                <!--<label class="item item-input-wrapper" >-->
+                  <input class="text-center intro-input" type="tel" ng-model="step2.phone" autocomplete="off" name="number" ng-disabled="showVerify"  ng-pattern="regex" >
+                <!--</label>-->
               </div>
             </div>
           </div>
@@ -26,13 +26,14 @@
           <div class="row" ng-show="showVerify">
             <div class="col col-center text-center">
             <h4>הזן קוד אימות</h4>
-              <label class="item item-input-wrapper">
-                <input type="tel" ng-model="step2.ver"autocomplete="off">
-              </label>
+              <div class="item item-input-inset">
+              <!--<label class="item item-input-wrapper" >-->
+                <input class="text-center intro-input" type="tel" ng-model="step2.ver"autocomplete="off">
+              <!--</label>-->
+                </div>
               <button class="button center fill text-center" ng-click="verifyNumber(step2.ver)" ng-show="step2.phone">סיום</button>
             </div>
           </div>
 </ion-slide-page>
     </ion-slides>
-
 </ion-view>

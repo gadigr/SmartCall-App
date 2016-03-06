@@ -71,6 +71,11 @@ ion-slides {
   direction: rtl;
 }
 
+.intro-input {
+  font-size: 2em!important;
+  width: 100%;
+}
+
 .popup-buttons {
   direction: rtl;
   flex-wrap: wrap;
