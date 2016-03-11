@@ -4,7 +4,9 @@
 
   $scope.search = {};
 
-  $scope.addPrivateApp = function() {
+  $scope.privateApp = {};
+  
+  /*$scope.addPrivateApp = function() {
 	 nCode = prompt('הכנס קוד מוקד פרטי:');
 	 if (nCode) {
 		 ClientsService.getData(function (data) {
@@ -24,6 +26,50 @@
 			 }
 		 });
 	 }
+  };*/
+  
+  $scope.addPrivateApp = function() {
+	  $scope.privateAppPopup = $ionicPopup.alert({
+		  title: 'הוספת מוקד פרטי',
+		  templateUrl: "popupPrivateTemplate.html",
+		  scope: $scope,
+		  buttons: [{
+			text: 'ביטול',
+			onTap: function(e) {
+			  $scope.privateApp = {};
+			}
+		  }, {
+			  text: 'הוסף',
+			  type: 'button-default',
+			  onTap: function(e) {
+				nCode = $scope.privateApp.code;
+				ClientsService.getData(function (data) {
+						newItem = data.filter(function(item) {
+							return (item.privateCode == nCode);
+						})[0];
+					  
+						if (newItem) {
+							privateApps = localStorage.privateApps ? JSON.parse(localStorage.privateApps) : [];
+							if (privateApps.indexOf(newItem.privateCode) < 0) {
+								$scope.items.push(newItem);
+								privateApps.push(newItem.privateCode);
+								localStorage.privateApps = JSON.stringify(privateApps);
+							}
+						} else {
+							$ionicPopup.alert({
+								title: 'הוספת מוקד פרטי',
+								template: 'לא נמצא מוקד פרטי מתאים',
+								buttons: [{
+									text: 'חזור'
+								}]
+							});
+						}
+				  });
+				  
+				  $scope.privateApp = {};
+			  }
+		  }]
+		});
   };
 
   $scope.updateSearch = function(txt) {
