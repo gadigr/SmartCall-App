@@ -9,10 +9,14 @@
       </button>
     </ion-nav-buttons>
   <ion-content>
+   <ion-refresher
+    pulling-text="משוך כדי לרענן..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
     <div class="row gallery" layout layout-wrap layout-align="center" >
       <div class="card stable-bg ink card-item"  ng-click="showTenantsPopup(item)" ng-repeat="item in items | filter: { name: search.txt }" ng-last-repeat="clientlist" >
         <div class="box">
-          <img ng-src="{{item.image ? item.image : '../img/phone.png'}}">
+          <img ng-src="{{item.image ? item.image : 'img/phone.png'}}">
         </div>
         <div class="item card-title">
           <a>{{item.name}}</a>

@@ -9,6 +9,10 @@
   color: rgba(0,0,0,.54);
 }
 
+.swiper-container-horizontal > .swiper-pagination .swiper-pagination-bullet {
+    opacity: 0;
+}
+
 .item-image {
   padding: 0;
   height: 100px;

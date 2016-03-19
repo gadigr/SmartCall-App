@@ -13,13 +13,14 @@
                 <!--<label class="item item-input-wrapper" >-->
                   <input class="text-center intro-input" type="tel" ng-model="step2.phone" autocomplete="off" name="number" ng-disabled="showVerify"  ng-pattern="regex" >
                 <!--</label>-->
-              </div>
+              </div> 
             </div>
           </div>
 
           <div class="row">
             <div class="col col-center text-center">
               <button class="button center fill text-center" ng-click="sendSMS(step2.phone)" ng-show="phoneForm.number.$valid && step2.phone.length > 1">{{button}}</button>
+              <p>{{message}}</p>
               </div>
           </div>
 

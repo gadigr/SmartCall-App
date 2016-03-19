@@ -9,6 +9,8 @@
     </author>
   <content src="index.html"/>
   <access origin="*"/>
+  <allow-navigation href="https://sec-phoneplus.com/DistributionWebService/DialerDistribution.asmx/ImportFromXml" />
+  <allow-navigation href="https://sec-phoneplus.com/DistributionWebService/MessageDistribution.asmx/ImportFromXml" />
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
