@@ -3,10 +3,12 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var app = angular.module('starter', ['ionic', 'ionic.wizard', 'ionic-material', 'clientsService', 'ngStorage', 'ionic-datepicker', 'ionic-timepicker']);
+var app = angular.module('starter', ['ionic', 'ionic.wizard', 'ngCordova','ionic-material', 'clientsService', 'connectionService', 'ngStorage', 'ionic-datepicker', 'ionic-timepicker']);
 
-app.run(function ($ionicPlatform, $ionicPopup) {
+app.run(function ($ionicPlatform, $ionicPopup, $cordovaNetwork) {
     $ionicPlatform.ready(function () {
+
+      
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
 
@@ -32,7 +34,7 @@ app.run(function ($ionicPlatform, $ionicPopup) {
     });
 })
 
-app.config(function ($stateProvider, $urlRouterProvider) {
+.config(function ($stateProvider, $urlRouterProvider) {
   // set default route to wizard
   var defaultRoute = '/app/intro';
 
@@ -73,4 +75,31 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise(defaultRoute);
-});
+})
+
+.controller('connectionCtrl', function($scope, $cordovaNetwork, $rootScope) {
+    document.addEventListener("deviceready", function () {
+ 
+        $scope.network = $cordovaNetwork.getNetwork();
+        $rootScope.isOnline = $cordovaNetwork.isOnline();
+        $rootScope.$apply();
+        
+        // listen for Online event
+        $rootScope.$on('$cordovaNetwork:online', function(event, networkState){
+            $rootScope.isOnline = true;
+            $scope.network = $cordovaNetwork.getNetwork();
+            
+            $rootScope.$apply();
+        })
+ 
+        // listen for Offline event
+        $rootScope.$on('$cordovaNetwork:offline', function(event, networkState){
+            console.log("got offline");
+            $rootScope.isOnline = false;
+            $scope.network = $cordovaNetwork.getNetwork();
+            
+            $rootScope.$apply();
+        })
+ 
+  }, false);
+});;

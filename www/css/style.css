@@ -17,6 +17,14 @@ h4:first-child {
     padding-top: initial;
 }
 
+.popup-input {
+    
+    background-color: white;
+    border: 1px solid #eee;
+    padding: 5px;
+
+}
+
 .title-bordered {
     border-top: solid 2px #bbb;
     padding-top: 30px;

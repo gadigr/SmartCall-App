@@ -18,12 +18,20 @@
         <div class="box">
           <img ng-src="{{item.image ? item.image : 'img/phone.png'}}">
         </div>
-        <div class="item card-title">
+       <!--  <div class="item card-title">
           <a>{{item.name}}</a>
-        </div>
+        </div> -->
       </div>
 	  <p ng-show="items && items.length <= 0">לא קיימים מוקדים להצגה</p>
     </div>
-
+    <div class="bar bar-footer">
+        <button class="button button-clear button-footer">מוקדים פרטיים</button>
+        <button class="button button-clear button-footer">מוקדים ציבוריים</button>
+    </div>
   </ion-content>
+
+      <div class="bar bar-footer" ng-hide="isOnline">
+         <div class="title"> נראה שאין רשת, לא ניתן לבצע שיחות כעת</div>
+    </div>
+
 </ion-view>
