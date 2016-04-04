@@ -1,4 +1,4 @@
-﻿app.controller('publicCtrl', function($scope, $cordovaKeyboard, $rootScope, $cordovaNetwork, $ionicPopup, $state, ionicMaterialInk, $timeout, ClientsService, $localStorage) {
+﻿app.controller('publicCtrl', function($scope,$ionicLoading, $cordovaKeyboard, $rootScope, $cordovaNetwork, $ionicPopup, $state, ionicMaterialInk, $timeout, ClientsService, $localStorage) {
 
     ionicMaterialInk.displayEffect();
 
@@ -181,7 +181,11 @@
 
 
     $scope.initClientsData = function() {
+      $ionicLoading.show({
+      template: '<ion-spinner></ion-spinner> <br/>טוען מוקדים...'
+    });
         ClientsService.getData(function(data) {
+          $ionicLoading.hide();
             if (!$scope.isPrivate) {
                 $scope.items = data.filter(function(item) {
                     return (item.isPublic);
