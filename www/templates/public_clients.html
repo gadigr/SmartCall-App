@@ -24,12 +24,12 @@
       </div>
 	  <p ng-show="items && items.length <= 0">לא קיימים מוקדים להצגה</p>
     </div>
+
+  </ion-content>
     <div class="bar bar-footer">
         <a class="button button-clear button-footer" ng-class="{true:'selected', false:''}[isPrivate]" href="#/app/clients/true">מוקדים פרטיים</a>
         <a class="button button-clear button-footer" ng-class="{true:'', false:'selected'}[isPrivate]" href="#/app/clients/false">מוקדים ציבוריים</a>
     </div>
-  </ion-content>
-
       <div class="bar bar-footer" ng-hide="isOnline">
          <div class="title"> נראה שאין רשת, לא ניתן לבצע שיחות כעת</div>
     </div>
