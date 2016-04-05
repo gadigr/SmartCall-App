@@ -281,7 +281,7 @@
             success: function(jqXHR) {
                 $ionicPopup.show({
                     title: 'הבקשה התקבלה',
-                    template: 'נחזור אליך בהקדם',
+                    template: 'SMS ישלח אלכם בזמן הקרוב',
                     buttons: [
                         { text: 'אישור' }
                     ]

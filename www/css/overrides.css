@@ -63,6 +63,31 @@
     direction: rtl;
 }
 
+ion-slide-page.button {
+    margin-top: 10px;
+}
+
+.resend {
+    display: block;
+    margin-top: 20px;
+}
+
+.swiper-slide .logo {
+    margin: 0 auto;
+    display: block;
+    width: 40%;
+}
+
+.takanon {
+    float: left;
+    margin-left: 10px;
+    bottom: 10px;
+}
+
+.swiper-slide .micro {
+    margin-bottom: 5px;
+}
+
 .bar .button-footer {
     /*padding: 10px;*/
     width: 50%!important;
@@ -74,7 +99,7 @@
 }
 
 .selected {
-    background-color:#585656!important;
+    background-color: #585656!important;
 }
 
 .bar > .button + .button:last-child {

@@ -1,40 +1,54 @@
 <ion-view>
     <ion-nav-buttons side="left">
-
     </ion-nav-buttons>
     <ion-slides options="swiperOptions" slider="swiper" ion-wizard>
-        <ion-slide-page ion-wizard-step class="has-header">
-          <div class="row">
-            <div class="col col-center">
-              <h3 class="positive text-center">ברוך הבא ל-SmartCall</h3>
-              <h4>אנא הזן את מספר הטלפון שלך</h4>
-              <p>אנחנו מבטיחים שלעולם לא נשתמש במספר זה לרעה</p>
-              <div class="item item-input-inset" ng-form name="phoneForm">
-                <!--<label class="item item-input-wrapper" >-->
-                  <input class="text-center intro-input" type="tel" ng-model="step2.phone" autocomplete="off" name="number" ng-disabled="showVerify"  ng-pattern="regex" >
-                <!--</label>-->
-              </div> 
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col col-center text-center">
-              <button class="button center fill text-center" ng-click="sendSMS(step2.phone)" ng-show="phoneForm.number.$valid && step2.phone.length > 1">{{button}}</button>
-              <p>{{message}}</p>
-              </div>
-          </div>
-
-          <div class="row" ng-show="showVerify">
-            <div class="col col-center text-center">
-            <h4>הזן קוד אימות</h4>
-              <div class="item item-input-inset">
-              <!--<label class="item item-input-wrapper" >-->
-                <input class="text-center intro-input" type="tel" ng-model="step2.ver"autocomplete="off">
-              <!--</label>-->
+        <ion-slide-page ion-wizard-step next-condition="step2.phone.length > 1">
+            <ion-content>
+                <div class="row">
+                    <div class="col col-center">
+                        <img class="logo" src="img\logo.jpg" ng-click="openBrowser()" />
+                        <h4 class="text-center">שלום<br/>
+              אנחנו שמחים שבחרתם להצטרף לקהילת "סמארט קליק" , מטרת האפליקציה היא לתת לכם חוית שירות ייחודית ולחסוך בזמנכם היקר.</h4>
+                        <p class="text-center micro">לרישום ראשוני אנא הזינו את המספר הנייד שלכם</p>
+                        <div class="item item-input-inset " ng-form name="phoneForm">
+                            <!--<label class="item item-input-wrapper" >-->
+                            <input class="text-center intro-input" type="tel" ng-model="step2.phone" autocomplete="off" name="number" ng-disabled="showVerify" ng-pattern="regex">
+                            <!--</label>-->
+                        </div>
+                        <p class="text-center micro">מייד לאחר הזנת המספר תקבלו SMS לצורך זיהוי ווהמשך הרישום.</p>
+                    </div>
                 </div>
-              <button class="button center fill text-center" ng-click="verifyNumber(step2.ver)" ng-show="step2.phone">סיום</button>
+                <div class="row">
+                    <div class="col col-center text-center">
+                        <button ion-wizard-next class="button center fill text-center" ng-click="sendSMS(step2.phone)" ng-show="phoneForm.number.$valid && step2.phone.length > 1">{{button}}</button>
+                    </div>
+                </div>
+                <div class="takanon">
+                    <a href="">לתקנון...</a>
+                </div>
+            </ion-content>
+        </ion-slide-page>
+        <ion-slide-page ion-wizard-step class="has-header">
+            <div class="row">
+                <div class="col col-center">
+                    <img class="logo" src="img\logo.jpg" ng-click="openBrowser()"/>
+                    <h4 class="text-center">ברגעים אלו נשלח אלכם קוד זיהוי בהודעת   SMS לצורך השלמת תהליך הרישום
+                    </h4>
+                </div>
             </div>
-          </div>
-</ion-slide-page>
+            <div class="row">
+                <div class="col col-center text-center">
+                    <h4 class="text-center">אנא הזינו את הקוד</h4>
+                    <div class="item item-input-inset">
+                        <!--<label class="item item-input-wrapper" >-->
+                        <input class="text-center intro-input" type="tel" ng-model="step2.ver" autocomplete="off">
+                        <!--</label>-->
+                    </div>
+                    <button style="margin-top: 10px;" class="button center fill text-center" ng-disabled="step2.ver.length < 4" ng-click="verifyNumber(step2.ver)">סיום</button>
+
+                    <a class="resend" ng-click="sendSMS(step2.phone)">שלח SMS בשנית</a>
+                </div>
+            </div>
+        </ion-slide-page>
     </ion-slides>
 </ion-view>
