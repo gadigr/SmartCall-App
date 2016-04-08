@@ -1,4 +1,4 @@
-﻿app.controller('publicCtrl', function($scope,$ionicLoading, $cordovaKeyboard, $rootScope, $cordovaNetwork, $ionicPopup, $state, ionicMaterialInk, $timeout, ClientsService, $localStorage) {
+﻿app.controller('publicCtrl', function($scope, $ionicLoading, $cordovaKeyboard, $rootScope, $cordovaNetwork, $ionicPopup, $state, ionicMaterialInk, $timeout, ClientsService, $localStorage) {
 
     ionicMaterialInk.displayEffect();
 
@@ -181,11 +181,11 @@
 
 
     $scope.initClientsData = function() {
-      $ionicLoading.show({
-      template: '<ion-spinner></ion-spinner> <br/>טוען מוקדים...'
-    });
+        $ionicLoading.show({
+            template: '<ion-spinner></ion-spinner> <br/>טוען מוקדים...'
+        });
         ClientsService.getData(function(data) {
-          $ionicLoading.hide();
+            $ionicLoading.hide();
             if (!$scope.isPrivate) {
                 $scope.items = data.filter(function(item) {
                     return (item.isPublic);
@@ -263,7 +263,9 @@
     $scope.sendDetails = function(selectedTime) {
         if ($scope.TimePopup) {
             $scope.TimePopup.close();
-            $scope.TenantsPopup.close();
+            if ($scope.TenantsPopup) {
+                $scope.TenantsPopup.close();
+            }
         }
 
         var phone = $localStorage.myAppData.phone;
