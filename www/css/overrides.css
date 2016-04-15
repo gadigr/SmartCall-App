@@ -23,6 +23,8 @@
     text-align: center;
 }
 
+
+
 .small {
     width: 100px;
     height: 125px;
@@ -45,6 +47,33 @@
 
 .item.box {
     padding: 5px;
+}
+
+.box {
+	padding: 16px;
+	background: white;
+	border-radius: 100px;
+}
+
+.box img {
+	height: 80px;
+	width: 80px;
+	box-shadow: none;
+}
+
+.card-item {
+    /*width: 100px;*/
+    /*height: 100px;*/
+	background: none;
+	box-shadow: none;
+}
+
+.card-item p {
+	margin-top: 10px;
+	text-align: center;
+	color: white;
+	font-family: david;
+	font-size: 1.2em;
 }
 
 .popuplink {
@@ -98,9 +127,9 @@ ion-slide-page.button {
     bottom: 5px;*/
 }
 
-.selected {
+/*.selected {
     background-color: #585656!important;
-}
+}*/
 
 .bar > .button + .button:last-child {
     top: 0;
@@ -112,11 +141,6 @@ ion-slide-page.button {
     background-color: white;
     border: 1px solid #eee;
     padding: 5px;
-}
-
-.card-item {
-    width: 100px;
-    height: 100px;
 }
 
 .card-title {

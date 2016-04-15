@@ -219,3 +219,32 @@ p {
 .platform-android .popover{
 margin-top:10px;
 }
+
+ion-content {
+	background: linear-gradient(to top, #663300, #ffcc66, #3db679);
+}
+
+.bar-top {
+	width: 100%;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+}
+
+.bar-top .button {
+	width: 49.5%;
+	margin: 0 0 0 0;
+	color: white;
+}
+
+.bar-top a.button:not(.selected) {
+	background: rgba(255, 255, 255, 0.8);
+	color: #003399;
+}
+
+.logo {
+	margin: 0 auto 10px auto;
+	height: 100px;
+	width: 100px;
+	background: url("../img/smartcall_logo.png");
+	background-size: 100%;
+}
