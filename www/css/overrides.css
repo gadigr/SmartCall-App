@@ -13,6 +13,19 @@
     opacity: 0;
 }
 
+.menu-circle-button {
+    font-size: 3em;
+    color: white!important;
+    background-color: #A67C52!important;
+    border-radius: 100px;
+    height: 30px;
+    float: none;
+    width: 47px;
+    padding: 0;
+    margin: 10px;
+}
+
+
 .bar {
     background-color: #AAAAAA;
 }
@@ -69,11 +82,15 @@
 }
 
 .card-item p {
-	margin-top: 10px;
-	text-align: center;
-	color: white;
-	font-family: david;
-	font-size: 1.2em;
+        margin: 10px auto;
+    text-align: center;
+    color: white;
+    /* font-family: david; */
+    display: block;
+    font-size: 1.2em;
+    float: none;
+    width: 80px;
+    /* overflow-wrap: break-word; */
 }
 
 .popuplink {

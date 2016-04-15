@@ -1,7 +1,8 @@
 
-<ion-view>
+<ion-view hide-nav-bar="true">
+<button class="button button-icon button-clear ion-navicon menu-circle-button" menu-toggle="left"></button>
   <ion-nav-title>
-	{{title}}
+	<!-- {{title}} -->
   </ion-nav-title>
   <search-bar ng-model="search"></search-bar>
   <ion-nav-buttons side="primary">
@@ -17,8 +18,8 @@
 		<div class="logo"></div>
 	</div>
 	<div class="bar-top">
-        <a class="button button-clear button-footer" ng-class="{true:'selected', false:''}[isPrivate]" href="#/app/clients/true">מוקדים פרטיים</a>
-        <a class="button button-clear button-footer" ng-class="{true:'', false:'selected'}[isPrivate]" href="#/app/clients/false">מוקדים ציבוריים</a>
+        <a class="button button-clear button-footer" ng-class="{true:'', false:'selected'}[isPrivate]" href="#/app/clients/true">מוקדים פרטיים</a>
+        <a class="button button-clear button-footer" ng-class="{true:'selected', false:''}[isPrivate]" href="#/app/clients/false">מוקדים ציבוריים</a>
     </div>
     <div class="row gallery" layout layout-wrap layout-align="center" >
       <div class="card stable-bg ink card-item"  ng-click="showTenantsPopup(item)" ng-repeat="item in items | filter: { name: search.txt }" ng-last-repeat="clientlist" >
