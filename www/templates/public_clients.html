@@ -4,7 +4,7 @@
   <ion-nav-title>
 	<!-- {{title}} -->
   </ion-nav-title>
-  <search-bar ng-model="search"></search-bar>
+  
   <ion-nav-buttons side="primary">
       <button ng-show="isPrivate" class="button button-clear button-icon ion-android-add" ng-click="addPrivateApp()"></button>
       </button>
@@ -21,6 +21,12 @@
         <a class="button button-clear button-footer" ng-class="{true:'', false:'selected'}[isPrivate]" href="#/app/clients/true">מוקדים פרטיים</a>
         <a class="button button-clear button-footer" ng-class="{true:'selected', false:''}[isPrivate]" href="#/app/clients/false">מוקדים ציבוריים</a>
     </div>
+	<div class='search'>
+	<div class="search">
+		<input type="text" ng-show="search.show" ng-model="search.txt" dir="rtl" />
+		<button class="button button-icon button-clear ion-navicon" ng-click="toggleSearch()"></button>
+	</div>
+	</div>
     <div class="row gallery" layout layout-wrap layout-align="center" >
       <div class="card stable-bg ink card-item"  ng-click="showTenantsPopup(item)" ng-repeat="item in items | filter: { name: search.txt }" ng-last-repeat="clientlist" >
 

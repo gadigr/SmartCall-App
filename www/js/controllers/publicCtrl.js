@@ -50,7 +50,14 @@
      });
    }
   };*/
-
+  
+	$scope.toggleSearch = function() {
+		$scope.search.show = !$scope.search.show;
+		if (!$scope.search.show) {
+			$scope.search.txt = '';
+		}
+	};
+  
     $scope.addPrivateApp = function() {
         $scope.isOpen = true;
 

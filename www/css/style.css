@@ -248,3 +248,32 @@ ion-content {
 	background: url("../img/smartcall_logo.png");
 	background-size: 100%;
 }
+
+.search button {
+    font-size: 30px;
+    color: white!important;
+	background: url("../img/search.png") 100% no-repeat !important ;
+    border-radius: 100px;
+    height: 30px;
+    float: right;
+    width: 47px;
+    padding: 0;
+    margin: 10px;
+}
+
+.search input {
+	float: left;
+	width: 70%;
+	margin: 15px 10px 0 30px;
+	padding: 5px;
+	height: 30px;
+	font-size: 1.5em;
+	background: none;
+	border-bottom: 1px solid white;
+	color: white;
+	text-align: center;
+}
+
+.search button:before {
+    content: none;
+}
