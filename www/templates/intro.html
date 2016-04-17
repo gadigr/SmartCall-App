@@ -2,8 +2,8 @@
     <ion-nav-buttons side="left">
     </ion-nav-buttons>
     <ion-slides options="swiperOptions" slider="swiper" ion-wizard>
-        <ion-slide-page ion-wizard-step next-condition="step2.phone.length > 9">
-        <!-- <ion-slide-page ion-wizard-step> -->
+        <!-- <ion-slide-page ion-wizard-step next-condition="step2.phone.length > 9"> -->
+        <ion-slide-page ion-wizard-step>
             <ion-content>
                 <div class="row">
                     <div class="col col-center">
@@ -34,8 +34,8 @@
                 </div>
             </ion-content>
         </ion-slide-page>
-        <ion-slide-page ion-wizard-step next-condition="verified" prev-condition="false">
-        <!-- <ion-slide-page ion-wizard-step >    -->
+        <!-- <ion-slide-page ion-wizard-step next-condition="verified" prev-condition="false"> -->
+        <ion-slide-page ion-wizard-step >   
             <ion-content>
                 <div class="row">
                     <div class="col col-center">
@@ -45,7 +45,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col col-center text-center">
+                    <div class="col col-center text-center ">
+
                         <h4 class="text-center">אנא הזינו את הקוד</h4>
                         <div class="item item-input-inset">
                             <!--<label class="item item-input-wrapper" >-->
@@ -58,7 +59,7 @@
                 </div>
             </ion-content>
         </ion-slide-page>
-        <ion-slide-page ion-wizard-step prev-condition="false">
+        <ion-slide-page ion-wizard-step prev-condition="false" next-condition="false">
             <ion-content>
                 <div class="row">
                     <div class="col col-center">
@@ -70,14 +71,17 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col col-center text-center">
+                    <div class="col col-center text-center intro-buttons">
                         <div class="button-private">
                             <div class="circle-button-icon"><i class="fa fa-user" aria-hidden="true"></i></div>
-                            <button ng-click="start(true)" style="width: 70%;" class="button center fill text-center">לאיזור האישי</button>
+                            <button ng-click="start(true)"  class="button center fill text-center">
+
+                            לאיזור האישי
+                            </button>
                         </div>
                         <div class="button-public">
                             <div class="circle-button-icon"><i class="fa fa-users" aria-hidden="true"></i></div>
-                            <button ng-click="start(false)" style="width: 70%;" class="button center fill text-center">לאיזור הציבורי</button>
+                            <button ng-click="start(false)"  class="button center fill text-center">לאיזור הציבורי</button>
                         </div>
                         <p class="text-center micro">תמיד תוכלו לעבור בין האזורים דרך התפריט או ע"י לחיצה על הכפתור המתאים</p>
                     </div>
