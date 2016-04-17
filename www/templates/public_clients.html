@@ -23,12 +23,12 @@
     </div>
     <div class="row gallery" layout layout-wrap layout-align="center" >
       <div class="card stable-bg ink card-item"  ng-click="showTenantsPopup(item)" ng-repeat="item in items | filter: { name: search.txt }" ng-last-repeat="clientlist" >
-		<div>
+
 			<div class="box">
 			  <img ng-src="{{item.image ? item.image : 'img/phone.png'}}">
 			</div>
 			<p>{{item.name}}</p>
-		</div>
+
        <!--  <div class="item card-title">
           <a>{{item.name}}</a>
         </div> -->

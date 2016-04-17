@@ -224,7 +224,7 @@
         if ($scope.selectedApp.tenants.length > 1) {
             $scope.TenantsPopup = $ionicPopup.alert({
                 title: item.name + " - בחירת שלוחה",
-                subTitle: "<img class=\"card-item\" src=\'" + source + "\' />",
+                // subTitle: "<img class=\"card-item\" src=\'" + source + "\' />",
                 templateUrl: "popupTenantsTemplate.html",
                 scope: $scope,
                 buttons: [{ // Array[Object] (optional). Buttons to place in the popup footer.

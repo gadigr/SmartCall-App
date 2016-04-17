@@ -14,7 +14,7 @@
 }
 
 .menu-circle-button {
-    font-size: 3em;
+    font-size: 30px;
     color: white!important;
     background-color: #A67C52!important;
     border-radius: 100px;
@@ -36,7 +36,52 @@
     text-align: center;
 }
 
+.button-private {
+    display: block;
+    margin: 20px auto;
+}
 
+.button-private button {
+    background-color: #7AB68B!important;
+}
+
+.button-private div {
+    top: 321px;
+    background-color: #A3C085;
+}
+
+.circle-button-icon {
+    background-color: red;
+    border-radius: 50%;
+    width: 60px;
+    display: inline-block;
+    position: absolute;
+    right: 40px;
+    z-index: 2;
+    height: 60px;
+    border: solid 1px white;
+}
+
+i.fa {
+    font-size: 2.8em;
+    margin-top: 10px;
+    color: white;
+}
+
+.button-public {
+display: block;
+    margin: 20px auto;
+}
+
+.button-public button {
+    background-color: #754333!important;
+}
+
+.button-public div {
+    top: 389px;
+    background-color: #8F5230;
+
+}
 
 .small {
     width: 100px;
@@ -68,9 +113,37 @@
 	border-radius: 100px;
 }
 
+.menu .avatar {
+    border-radius: 0;
+    margin: 7px auto;
+    position: initial;
+    width: 140px;
+    height: 140px;
+}
+
+ion-side-menu .scroll {
+    background-color: white;
+}
+
+.item .item-input-inset  {
+    border-radius: 0;
+}
+
+.item.item-input-inset.ng-pristine.ng-valid.ng-valid-pattern {
+    border-width: 0px;
+}
+
+/*ion-slides h1 {
+    color: #116262;
+}*/
+
+ion-slides * {
+    color: #023667;
+}
+
 .box img {
-	height: 80px;
-	width: 80px;
+	height: 60px;
+	width: 60px;
 	box-shadow: none;
 }
 
@@ -125,9 +198,8 @@ ion-slide-page.button {
 }
 
 .takanon {
-    float: left;
-    margin-left: 10px;
-    bottom: 10px;
+        width: 100%;
+    text-align: center;
 }
 
 .swiper-slide .micro {
@@ -154,6 +226,13 @@ ion-slide-page.button {
     bottom: 0;
 }
 
+
+.popup-container.active .popup {
+   border-radius: 5px;
+   border: solid 1px white;
+}
+
+
 .popup-input {
     background-color: white;
     border: 1px solid #eee;
@@ -176,11 +255,39 @@ ion-slides {
     direction: rtl;
 }
 
-.intro-input {
-    font-size: 2em!important;
-    width: 100%;
+ion-slides .button {
+
+    border-radius: 10px;
+    border: solid 1px white;
+    color: white!important;
+    background-color: transparent;
+    overflow: hidden!important;
 }
 
+.thanks-footer {
+   bottom: 80px;
+    width: 30%;
+    left: 25px;
+    /*position: absolute;*/
+    float: left;
+    display: block;
+    }
+
+.intro-input {
+    text-align: center;
+    font-size: 2em!important;
+    color: #023667!important;
+    width:80%;
+        line-height: 110%!important;
+    background-color: transparent;
+    border-bottom: 1px solid white!important;
+    margin: 0 auto;
+}
+
+.item {
+
+    border: 0;
+}
 .popup-buttons {
     direction: rtl;
     flex-wrap: wrap;
@@ -190,6 +297,11 @@ ion-slides {
     direction: rtl;
     padding: 0;
     margin-right: 5px!important;
+/*        border-radius: 10px;
+    border: solid 1px #2D2D2D;
+    color: #2D2D2D!important;
+    background-color: ;
+    overflow: hidden!important;*/
 }
 
 .popup-buttons .button:first-child {

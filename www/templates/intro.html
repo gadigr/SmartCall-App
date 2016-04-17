@@ -1,21 +1,23 @@
-<ion-view>
+<ion-view hide-nav-bar="true">
     <ion-nav-buttons side="left">
     </ion-nav-buttons>
     <ion-slides options="swiperOptions" slider="swiper" ion-wizard>
-        <ion-slide-page ion-wizard-step next-condition="step2.phone.length > 1">
+        <ion-slide-page ion-wizard-step next-condition="step2.phone.length > 9">
+        <!-- <ion-slide-page ion-wizard-step> -->
             <ion-content>
                 <div class="row">
                     <div class="col col-center">
-                        <img class="logo" src="img\logo.jpg" ng-click="openBrowser()" />
-                        <h4 class="text-center">שלום<br/>
-              אנחנו שמחים שבחרתם להצטרף לקהילת "סמארט קליק" , מטרת האפליקציה היא לתת לכם חוית שירות ייחודית ולחסוך בזמנכם היקר.</h4>
+                        <img class="logo" src="img\smartcall_logo.png" ng-click="openBrowser()" />
+                        <h1 class="text-center">שלום</h1>
+                        <h5 class="text-center">
+              אנחנו שמחים שבחרתם להצטרף לקהילת "סמארט קליק" , מטרת האפליקציה היא לתת לכם חוית שירות ייחודית ולחסוך בזמנכם היקר.</h5>
                         <p class="text-center micro">לרישום ראשוני אנא הזינו את המספר הנייד שלכם</p>
                         <div class="item item-input-inset " ng-form name="phoneForm">
                             <!--<label class="item item-input-wrapper" >-->
                             <input class="text-center intro-input" type="tel" ng-model="step2.phone" autocomplete="off" name="number" ng-disabled="showVerify" ng-pattern="regex">
                             <!--</label>-->
                         </div>
-                        <p class="text-center micro">מייד לאחר הזנת המספר תקבלו SMS לצורך זיהוי ווהמשך הרישום.</p>
+                        <p class="text-center micro">מייד לאחר הזנת המספר תקבלו SMS לצורך זיהוי והמשך הרישום.</p>
                     </div>
                 </div>
                 <div class="row">
@@ -26,29 +28,60 @@
                 <div class="takanon">
                     <a href="">לתקנון...</a>
                 </div>
+                <div class="thanks-footer">
+                    <h5 class="text-right">תודה,<br>
+                סמראט-קליק</h5>
+                </div>
             </ion-content>
         </ion-slide-page>
-        <ion-slide-page ion-wizard-step class="has-header">
-            <div class="row">
-                <div class="col col-center">
-                    <img class="logo" src="img\logo.jpg" ng-click="openBrowser()"/>
-                    <h4 class="text-center">ברגעים אלו נשלח אלכם קוד זיהוי בהודעת   SMS לצורך השלמת תהליך הרישום
-                    </h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col col-center text-center">
-                    <h4 class="text-center">אנא הזינו את הקוד</h4>
-                    <div class="item item-input-inset">
-                        <!--<label class="item item-input-wrapper" >-->
-                        <input class="text-center intro-input" type="tel" ng-model="step2.ver" autocomplete="off">
-                        <!--</label>-->
+        <ion-slide-page ion-wizard-step next-condition="verified" prev-condition="false">
+        <!-- <ion-slide-page ion-wizard-step >    -->
+            <ion-content>
+                <div class="row">
+                    <div class="col col-center">
+                        <img class="logo" src="img\smartcall_logo.png" ng-click="openBrowser()" />
+                        <h5 class="text-center">ברגעים אלו נשלח אלכם קוד זיהוי בהודעת   SMS לצורך השלמת תהליך הרישום
+                    </h5>
                     </div>
-                    <button style="margin-top: 10px;" class="button center fill text-center" ng-disabled="step2.ver.length < 4" ng-click="verifyNumber(step2.ver)">סיום</button>
-
-                    <a class="resend" ng-click="sendSMS(step2.phone)">שלח SMS בשנית</a>
                 </div>
-            </div>
+                <div class="row">
+                    <div class="col col-center text-center">
+                        <h4 class="text-center">אנא הזינו את הקוד</h4>
+                        <div class="item item-input-inset">
+                            <!--<label class="item item-input-wrapper" >-->
+                            <input class="text-center intro-input" type="tel" ng-model="step2.ver" autocomplete="off">
+                            <!--</label>-->
+                        </div>
+                        <button   ion-wizard-next  style="margin-top: 10px;" class="button center fill text-center" ng-disabled="step2.ver.length < 4" ng-click="verifyNumber(step2.ver)">סיום</button>
+                        <a class="resend" ng-click="sendSMS(step2.phone)">שלח SMS בשנית</a>
+                    </div>
+                </div>
+            </ion-content>
+        </ion-slide-page>
+        <ion-slide-page ion-wizard-step prev-condition="false">
+            <ion-content>
+                <div class="row">
+                    <div class="col col-center">
+                        <img class="logo" src="img\smartcall_logo.png" ng-click="openBrowser()" />
+                        <h4 class="text-center">תודה שהצטרפת לקהילת סמארט-קליק!</h4>
+                        <h5>אנו מודים לכם על הצטרפותכם <br>
+                        נשמח לשמוע מכם על חווית השימוש <br>
+                        ע"י לחיצה על כפתור התפריט המופיע בקצה העליון השמאלי</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-center text-center">
+                        <div class="button-private">
+                            <div class="circle-button-icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+                            <button ng-click="start(true)" style="width: 70%;" class="button center fill text-center">לאיזור האישי</button>
+                        </div>
+                        <div class="button-public">
+                            <div class="circle-button-icon"><i class="fa fa-users" aria-hidden="true"></i></div>
+                            <button ng-click="start(false)" style="width: 70%;" class="button center fill text-center">לאיזור הציבורי</button>
+                        </div>
+                        <p class="text-center micro">תמיד תוכלו לעבור בין האזורים דרך התפריט או ע"י לחיצה על הכפתור המתאים</p>
+                    </div>
+            </ion-content>
         </ion-slide-page>
     </ion-slides>
 </ion-view>
