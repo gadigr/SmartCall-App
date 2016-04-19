@@ -221,7 +221,7 @@ margin-top:10px;
 }
 
 ion-content {
-	background: linear-gradient(to top, #663300, #ffcc66, #3db679);
+	background: linear-gradient(to top, #ffcc66, #3db679);
 }
 
 .bar-top {
@@ -231,7 +231,7 @@ ion-content {
 }
 
 .bar-top .button {
-	width: 49.5%;
+	width: 49.3%;
 	margin: 0 0 0 0;
 	color: white;
 }
@@ -263,7 +263,7 @@ ion-content {
 
 .search input {
 	float: left;
-	width: 70%;
+	width: 60%;
 	margin: 15px 10px 0 30px;
 	padding: 5px;
 	height: 30px;
@@ -275,5 +275,21 @@ ion-content {
 }
 
 .search button:before {
+    content: none;
+}
+
+button.add-private-app {
+    font-size: 30px;
+    color: white!important;
+	/*background: url("../img/search.png") 100% no-repeat !important ;*/
+    border-radius: 100px;
+    height: 30px;
+    float: right;
+    width: 47px;
+    padding: 0;
+    margin: 10px;
+}
+
+button.add-private-app:before {
     content: none;
 }
