@@ -14,7 +14,7 @@
                         <p class="text-center micro">לרישום ראשוני אנא הזינו את המספר הנייד שלכם</p>
                         <div class="item item-input-inset " ng-form name="phoneForm">
                             <!--<label class="item item-input-wrapper" >-->
-                            <input class="text-center intro-input" type="tel" ng-model="step2.phone" autocomplete="off" name="number" ng-disabled="showVerify" ng-pattern="regex">
+                            <input class="text-center intro-input" type="tel" ng-model="step2.phone" autocomplete="off" name="number" ng-pattern="regex">
                             <!--</label>-->
                         </div>
                         <p class="text-center micro">מייד לאחר הזנת המספר תקבלו SMS לצורך זיהוי והמשך הרישום.</p>
@@ -22,7 +22,7 @@
                 </div>
                 <div class="row">
                     <div class="col col-center text-center">
-                        <button ion-wizard-next class="button center fill text-center" ng-click="sendSMS(step2.phone)" ng-disabled="phoneForm.number.$valid && step2.phone.length > 1">{{button}}</button>
+                        <button ion-wizard-next class="button center fill text-center" ng-click="sendSMS(step2.phone)" ng-enabled="step2.phone.length">{{button}}</button>
                     </div>
                 </div>
                 <div class="takanon">

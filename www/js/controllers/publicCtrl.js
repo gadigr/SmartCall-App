@@ -290,7 +290,6 @@
             success: function(jqXHR) {
                 $ionicPopup.show({
                     title: 'הבקשה התקבלה',
-                    template: 'SMS ישלח אלכם בזמן הקרוב',
                     buttons: [
                         { text: 'אישור' }
                     ]
