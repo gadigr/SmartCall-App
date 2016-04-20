@@ -22,7 +22,7 @@
                 </div>
                 <div class="row">
                     <div class="col col-center text-center">
-                        <button ion-wizard-next class="button center fill text-center" ng-click="sendSMS(step2.phone)" ng-show="phoneForm.number.$valid && step2.phone.length > 1">{{button}}</button>
+                        <button ion-wizard-next class="button center fill text-center" ng-click="sendSMS(step2.phone)" ng-disabled="phoneForm.number.$valid && step2.phone.length > 1">{{button}}</button>
                     </div>
                 </div>
                 <div class="takanon">
