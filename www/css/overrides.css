@@ -261,6 +261,25 @@ ion-slide-page.button {
     margin: 5px;
 }
 
+.popup * {
+    color: white;
+   
+}
+
+.popup {
+     background-color: rgba(0, 0, 0, 0.55)!important;
+    /*backdrop-filter:blur(15px);*/
+}
+
+.popup .button {
+
+    border-radius: 10px;
+    border: solid 1px white;
+    color: white!important;
+    background-color: transparent;
+    overflow: hidden!important;
+}
+
 ion-slides {
     direction: rtl;
 }
@@ -388,6 +407,16 @@ ion-slides .button {
     padding-right: 5px;
 }
 
+
+.popup input {
+    border: 1px solid rgb(238, 238, 238);
+    padding: 5px;
+    margin: 0 10px;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+}
+
 .popup-body {
     padding: 0;
     direction: rtl;
@@ -396,6 +425,7 @@ ion-slides .button {
 .popup-head {
     padding-bottom: 0;
     direction: rtl;
+    border-bottom: 0;
 }
 
 p.popup-right {
