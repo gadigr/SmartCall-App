@@ -25,6 +25,24 @@ h4:first-child {
 
 }
 
+.ionic_datepicker_popup .popup-body .show_nav {
+    padding: 0 10px;
+    direction: ltr;
+}
+
+.ionic_datepicker_popup .popup-buttons {
+    padding: 10px;  
+}
+
+.ionic_datepicker_popup .popup-body .selected_date_full {
+    background-color: transparent;
+    margin: 0;
+}
+
+.ionic_datepicker_popup .popup-body {
+    background-color: transparent;
+}
+
 .title-bordered {
     border-top: solid 2px #bbb;
     padding-top: 30px;

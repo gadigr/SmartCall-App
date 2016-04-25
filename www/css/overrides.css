@@ -9,6 +9,96 @@
     color: rgba(0, 0, 0, .54);
 }
 
+.popup-body * {
+    /*color: white;*/
+   
+}
+
+.col.no_padding.date_col {
+    color: white;
+}
+
+.popuplink *{
+    color: white;
+}
+
+.timePickerBoxText {
+    color: white!important;
+}
+
+.row.weeks_row {
+    color: white;
+}
+
+.popup-head * {
+    color: white;
+}
+
+.ionic_datepicker_popup .popup-body .show_nav {
+    padding: 0 10px!important;
+    direction: ltr!important;
+}
+
+.ionic_datepicker_popup .popup-buttons {
+    padding: 10px!important;  
+}
+
+.ionic_datepicker_popup .popup-body .selected_date_full {
+    background-color: transparent!important;
+    margin: 0!important;
+}
+
+.ionic_datepicker_popup .popup-body {
+    background-color: transparent!important;
+}
+
+.ionic_datepicker_popup .popup-buttons button {
+background-color: transparent!important;
+     border-radius: 10px!important; 
+}
+
+.ionic_datepicker_popup .selected_date {
+    background-color: #49B878!important;
+}
+
+.ionic_datepicker_popup .today {
+    border: 1px solid #49B878!important;
+
+}
+
+.ionic_datepicker_popup .popup-body select {
+    color: white!important;
+    background-color: transparent!important;
+}
+
+.ionic_datepicker_popup .popup-body .pointer_events_none {
+    color: #aaaaaa!important;
+}
+
+.ionic_datepicker_popup .popup-buttons {
+    direction: ltr;
+}
+
+/*.popup-buttons .button:last-child {
+    margin-right: 0px!important;
+}*/
+
+.ionic_datepicker_popup .popup-buttons .button:first-child {
+    margin-right: 5px!important;
+}
+
+.ionic_datepicker_popup .popup-body .month_select, .ionic_datepicker_popup .popup-body .year_select {
+    border-bottom: 1px solid #49B878!important;
+}
+
+.ionic_datepicker_popup .popup-body .year_select {
+    border-bottom: 1px solid #49B878!important;
+}
+
+.ionic_datepicker_popup .popup-body .month_select:after, .ionic_datepicker_popup .popup-body .year_select:after {
+    color: #49B878!important;
+}
+
 .swiper-container-horizontal > .swiper-pagination .swiper-pagination-bullet {
     opacity: 0;
 }
@@ -92,6 +182,8 @@ display: block;
     background-color: #8F5230;
 
 }
+
+
 
 .small {
     width: 100px;
@@ -261,10 +353,6 @@ ion-slide-page.button {
     margin: 5px;
 }
 
-.popup * {
-    color: white;
-   
-}
 
 .circle-logo {
     border-radius: 50%;
