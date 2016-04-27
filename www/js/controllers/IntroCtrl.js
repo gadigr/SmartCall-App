@@ -47,7 +47,7 @@ app.controller('IntroCtrl', function($scope, $cordovaToast, $cordovaInAppBrowser
 
     $scope.openBrowser = function() {
 
-        $cordovaInAppBrowser.open('http://www.smartcall.com', '_system', { location: "yes" })
+        $cordovaInAppBrowser.open('http://www.smartcall.co.il', '_system', { location: "yes" })
             .then(function(event) {
                 // success
 

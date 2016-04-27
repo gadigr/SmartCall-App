@@ -183,12 +183,6 @@
                             subTitle: scope.subTitle,
                             scope: scope,
                             buttons: [{
-                                text: scope.closeLabel,
-                                type: scope.closeButtonType,
-                                onTap: function(e) {
-                                    scope.inputObj.callback(undefined);
-                                }
-                            }, {
                                 text: scope.setLabel,
                                 type: scope.setButtonType,
                                 onTap: function(e) {
@@ -213,6 +207,12 @@
                                     }
 
                                     // scope.inputObj.callback(scope.etime);
+                                }
+                            }, {
+                                text: scope.closeLabel,
+                                type: scope.closeButtonType,
+                                onTap: function(e) {
+                                    scope.inputObj.callback(undefined);
                                 }
                             }]
                         });

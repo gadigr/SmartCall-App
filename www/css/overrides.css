@@ -31,7 +31,7 @@
 }
 
 .popup-head * {
-    color: white;
+    color: #F7F494;
 }
 
 .ionic_datepicker_popup .popup-body .show_nav {
@@ -76,7 +76,7 @@ background-color: transparent!important;
 }
 
 .ionic_datepicker_popup .popup-buttons {
-    direction: ltr;
+    /*direction: ltr;*/
 }
 
 /*.popup-buttons .button:last-child {
@@ -209,13 +209,20 @@ display: block;
     padding: 5px;
 }
 
+.popup-sub-title { 
+    font-size: 16px;
+}
+
+
+
+
 .box {
     padding: 12px;
     background: white;
     border-radius: 50%;
     border: 2px solid rgba(0,0,0,0.4);
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     margin: 0 auto;
 }
 
@@ -263,17 +270,25 @@ ion-slides * {
     text-align: center;
     color: white;
     display: block;
-    font-size: 0.9em;
+    font-size: 1.1em;
     float: none;
     /*width: 54px;*/
 }
 
+h5 .desc {
+    padding: 0 30px;
+}
+.ion-slides h5 {
+    font-size: 13px;
+}
 .popuplink {
     text-align: center;
-    margin: 5px;
+    margin: 5px auto;
     height: 1.5em;
     line-height: 1.5em;
+    color: white;
     font-size: 1.5em;
+    border-bottom: solid 1px rgba(255,255,255,0.19);
 }
 
 .platform-android .bar .title {
@@ -304,8 +319,13 @@ ion-slide-page.button {
     text-align: center;
 }
 
+.ion-slides button[disabled]{
+    color: black!important;
+}
+
 .swiper-slide .micro {
     margin-bottom: 5px;
+        font-size: 17px;
 }
 
 .bar .button-footer {
@@ -362,7 +382,7 @@ ion-slide-page.button {
 }
 
 .popup {
-     background-color: rgba(0, 0, 0, 0.55)!important;
+     background-color: rgba(0, 0, 0, 0.75)!important;
     /*backdrop-filter:blur(15px);*/
 }
 
@@ -518,9 +538,9 @@ ion-slides .button {
 }
 
 .popup-head {
-    padding-bottom: 0;
+    padding-bottom: 5px;
     direction: rtl;
-    border-bottom: 0;
+    border-bottom: solid 1px rgba(255,255,255,0.19);
 }
 
 p.popup-right {

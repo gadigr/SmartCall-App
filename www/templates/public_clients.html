@@ -16,11 +16,11 @@
   </ion-refresher>
 	<button class="button button-icon button-clear ion-navicon add-private-app" ng-click="addPrivateApp()" ng-show="isPrivate">+</button>
 	<div>
-		<div class="logo"></div>
+		<div class="logo" ng-click="openBrowser()"></div>
 	</div>
 	<div class="bar-top" dir="rtl">
-        <a class="button button-clear button-footer" ng-class="{true:'', false:'selected'}[isPrivate]" href="#/app/clients/true">מוקדים פרטיים</a>
-        <a class="button button-clear button-footer" ng-class="{true:'selected', false:''}[isPrivate]" href="#/app/clients/false">מוקדים ציבוריים</a>
+        <a class="button button-clear button-footer" ng-class="{true:'', false:'selected'}[isPrivate]" href="#/app/clients/true">אזור אישי</a>
+        <a class="button button-clear button-footer" ng-class="{true:'selected', false:''}[isPrivate]" href="#/app/clients/false">אזור ציבורי</a>
     </div>
 	<div class='search'>
 	<div class="search">

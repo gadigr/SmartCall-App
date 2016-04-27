@@ -10,7 +10,7 @@
                         <img class="logo" src="img\smartcall_logo.png" ng-click="openBrowser()" />
                         <h1 class="text-center">שלום</h1>
                         <h5 class="text-center">
-              אנחנו שמחים שבחרתם להצטרף לקהילת "סמארט קליק" , מטרת האפליקציה היא לתת לכם חוית שירות ייחודית ולחסוך בזמנכם היקר.</h5>
+              אנחנו שמחים שבחרתם להצטרף לקהילת Smart Call , מטרת האפליקציה היא לתת לכם חוית שירות ייחודית ולחסוך בזמנכם היקר.</h5>
                         <p class="text-center micro">לרישום ראשוני אנא הזינו את המספר הנייד שלכם</p>
                         <div class="item item-input-inset " ng-form name="phoneForm">
                             <!--<label class="item item-input-wrapper" >-->
@@ -25,12 +25,12 @@
                         <button ion-wizard-next class="button center fill text-center" ng-click="sendSMS(step2.phone)" ng-enabled="step2.phone.length">{{button}}</button>
                     </div>
                 </div>
-                <div class="takanon">
+               <!--  <div class="takanon">
                     <a href="">לתקנון...</a>
-                </div>
+                </div> -->
                 <div class="thanks-footer">
                     <h5 class="text-right">תודה,<br>
-                סמראט-קליק</h5>
+                Smart Call</h5>
                 </div>
             </ion-content>
         </ion-slide-page>
@@ -64,7 +64,7 @@
                 <div class="row">
                     <div class="col col-center">
                         <img class="logo" src="img\smartcall_logo.png" ng-click="openBrowser()" />
-                        <h4 class="text-center">תודה שהצטרפת לקהילת סמארט-קליק!</h4>
+                        <h4 class="text-center desc">תודה שהצטרפת לקהילת Smart Call!</h4>
                         <h5>אנו מודים לכם על הצטרפותכם <br>
                         נשמח לשמוע מכם על חווית השימוש <br>
                         ע"י לחיצה על כפתור התפריט המופיע בקצה העליון השמאלי</h5>
@@ -76,14 +76,14 @@
                             <div class="circle-button-icon"><i class="fa fa-user" aria-hidden="true"></i></div>
                             <button ng-click="start(true)"  class="button center fill text-center">
 
-                            לאיזור האישי
+                            לאזור האישי
                             </button>
                         </div>
                         <div class="button-public">
                             <div class="circle-button-icon"><i class="fa fa-users" aria-hidden="true"></i></div>
-                            <button ng-click="start(false)"  class="button center fill text-center">לאיזור הציבורי</button>
+                            <button ng-click="start(false)"  class="button center fill text-center">לאזור הציבורי</button>
                         </div>
-                        <p class="text-center micro">תמיד תוכלו לעבור בין האזורים דרך התפריט או ע"י לחיצה על הכפתור המתאים</p>
+                        <!-- <p class="text-center micro">תמיד תוכלו לעבור בין האזורים דרך התפריט או ע"י לחיצה על הכפתור המתאים</p> -->
                     </div>
             </ion-content>
         </ion-slide-page>
