@@ -16,7 +16,7 @@
   </ion-refresher>
 	<button class="button button-icon button-clear ion-navicon add-private-app" ng-click="addPrivateApp()" ng-show="isPrivate">+</button>
 	<div>
-		<div class="logo" ng-click="openBrowser()"></div>
+		<a href="http://www.smartcall.co.il/" target="blank"><div class="logo" ng-click="openBrowser()"></div></a>
 	</div>
 	<div class="bar-top" dir="rtl">
         <a class="button button-clear button-footer" ng-class="{true:'', false:'selected'}[isPrivate]" href="#/app/clients/true">אזור אישי</a>
@@ -24,7 +24,7 @@
     </div>
 	<div class='search'>
 	<div class="search">
-		<input type="text" ng-show="search.show" ng-model="search.txt" dir="rtl" />
+		<input id="search_text" type="text" ng-show="search.show" ng-model="search.txt" dir="rtl" />
 		<button class="button button-icon button-clear ion-navicon" ng-click="toggleSearch()"></button>
 	</div>
 	</div>

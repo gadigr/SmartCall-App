@@ -72,7 +72,11 @@
         $scope.search.show = !$scope.search.show;
         if (!$scope.search.show) {
             $scope.search.txt = '';
-        }
+        } else {
+			$timeout(function() {
+				document.getElementById('search_text').focus();
+			}, 100);
+		}
     };
 
     $scope.addPrivateApp = function() {
@@ -86,11 +90,6 @@
             templateUrl: "popupPrivateTemplate.html",
             scope: $scope,
             buttons: [{
-                text: 'ביטול',
-                onTap: function(e) {
-                    $scope.privateApp = {};
-                }
-            }, {
                 text: 'הוסף',
                 type: 'button-default',
                 onTap: function(e) {
@@ -111,7 +110,7 @@
                         } else {
                             $ionicPopup.alert({
                                 title: 'הוספת מוקד פרטי',
-                                template: 'לא נמצא מוקד פרטי מתאים',
+                                template: '<div style="text-align: center;"><p style="color: white;">' + 'קוד לא תקין, פנה לנציג החברה לקבלת הקוד' + '</p></div>',
                                 buttons: [{
                                     text: 'חזור'
                                 }]
@@ -119,6 +118,12 @@
                         }
                     });
 
+                    $scope.privateApp = {};
+                }
+            },
+			{
+                text: 'ביטול',
+                onTap: function(e) {
                     $scope.privateApp = {};
                 }
             }]

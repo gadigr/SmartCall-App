@@ -2,6 +2,10 @@
     // Form data for the login modal
     $scope.loginData = {};
 
+	$scope.bla = function() {
+		alert('ook');
+	};
+	
     var navIcons = document.getElementsByClassName('ion-navicon');
     for (var i = 0; i < navIcons.length; i++) {
         navIcons.addEventListener('click', function () {
