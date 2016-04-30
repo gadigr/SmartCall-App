@@ -23,10 +23,8 @@
         <a class="button button-clear button-footer" ng-class="{true:'selected', false:''}[isPrivate]" href="#/app/clients/false">אזור ציבורי</a>
     </div>
 	<div class='search'>
-	<div class="search">
 		<input id="search_text" type="text" ng-show="search.show" ng-model="search.txt" dir="rtl" />
 		<button class="button button-icon button-clear ion-navicon" ng-click="toggleSearch()"></button>
-	</div>
 	</div>
     <div class="row gallery" layout layout-wrap layout-align="center" >
       <div class="card  card-item"  ng-click="showTenantsPopup(item)" ng-repeat="item in items | filter: { name: search.txt }" ng-last-repeat="clientlist" >

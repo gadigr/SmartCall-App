@@ -2,8 +2,20 @@
     // Form data for the login modal
     $scope.loginData = {};
 
-	$scope.bla = function() {
-		alert('ook');
+	$scope.contact = function() {
+		if(window.plugins && window.plugins.emailComposer) {
+            window.plugins.emailComposer.showEmailComposerWithCallback(function(result) {
+                console.log("Response -> " + result);
+            }, 
+            "משוב על אפליקציית סמארט-קליק", // Subject
+            "",                      // Body
+            ["eli@afikim-c.co.il"],    // To
+            null,                    // CC
+            null,                    // BCC
+            false,                   // isHTML
+            null,                    // Attachments
+            null);                   // Attachment Data
+        }
 	};
 	
     var navIcons = document.getElementsByClassName('ion-navicon');

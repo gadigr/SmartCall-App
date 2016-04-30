@@ -3,7 +3,7 @@
     ionicMaterialInk.displayEffect();
 
     $scope.search = {};
-
+	
     $scope.privateApp = {};
 
     $scope.isOnline = true;
@@ -27,29 +27,6 @@
         console.log('offline');
         $scope.$apply();
     });
-
-
-    /*$scope.addPrivateApp = function() {
-   nCode = prompt('הכנס קוד מוקד פרטי:');
-   if (nCode) {
-     ClientsService.getData(function (data) {
-       newItem = data.filter(function(item) {
-         return (item.privateCode == nCode);
-       })[0];
-
-       if (newItem) {
-         privateApps = localStorage.privateApps ? JSON.parse(localStorage.privateApps) : [];
-         if (privateApps.indexOf(newItem.privateCode) < 0) {
-           $scope.items.push(newItem);
-           privateApps.push(newItem.privateCode);
-           localStorage.privateApps = JSON.stringify(privateApps);
-         }
-       } else {
-         alert('לא נמצא מוקד פרטי מתאים');
-       }
-     });
-   }
-  };*/
 
     $scope.openBrowser = function() {
 
@@ -75,7 +52,7 @@
         } else {
             $timeout(function() {
                 document.getElementById('search_text').focus();
-            }, 100);
+            });
         }
     };
 
@@ -142,6 +119,8 @@
             } else {
                 $scope.title = 'כל המוקדים';
             }
+			
+			$scope.search = {};
         }
 
         if (!$scope.$$phase) {
