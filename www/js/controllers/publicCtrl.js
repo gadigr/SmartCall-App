@@ -51,7 +51,7 @@
    }
   };*/
 
-     $scope.openBrowser = function() {
+    $scope.openBrowser = function() {
 
         $cordovaInAppBrowser.open('http://www.smartcall.co.il', '_system', { location: "yes" })
             .then(function(event) {
@@ -73,10 +73,10 @@
         if (!$scope.search.show) {
             $scope.search.txt = '';
         } else {
-			$timeout(function() {
-				document.getElementById('search_text').focus();
-			}, 100);
-		}
+            $timeout(function() {
+                document.getElementById('search_text').focus();
+            }, 100);
+        }
     };
 
     $scope.addPrivateApp = function() {
@@ -120,8 +120,7 @@
 
                     $scope.privateApp = {};
                 }
-            },
-			{
+            }, {
                 text: 'ביטול',
                 onTap: function(e) {
                     $scope.privateApp = {};
@@ -183,16 +182,24 @@
             callback: function(val) { //Mandatory
                 if (val) {
                     $scope.selectedDate = new Date(val);
-                    console.log($scope.selectedTenant.workdays[$scope.selectedDate.getDay()]);
+                    var workday = $scope.selectedTenant.workdays[$scope.selectedDate.getDay()];
                     if (!$scope.selectedTenant.workdays[$scope.selectedDate.getDay()].allday) {
                         $scope.timePickerObject.updateWorkHours(
-                            Date.parse($scope.selectedTenant.workdays[$scope.selectedDate.getDay()].start),
-                            Date.parse($scope.selectedTenant.workdays[$scope.selectedDate.getDay()].end),
+                            Date.parse(workday.start),
+                            Date.parse(workday.end),
                             "שעות עבודה: " +
-                            $scope.selectedTenant.workdays[$scope.selectedDate.getDay()].end + " - " +
-                            $scope.selectedTenant.workdays[$scope.selectedDate.getDay()].start);
+                            workday.end + " - " +
+                            workday.start);
                     }
-                    $rootScope.$broadcast('showTimePopup', {});
+
+                    if ($scope.selectedDate.isSameDay(new Date()) &&
+                        new Date().getHours() > Date.parse(workday.end).getHours() &&
+                        new Date().getMinutes() > Date.parse(workday.end).getMinutes()) {
+                        $cordovaToast.showShortBottom("לא ניתן לתאם שיחה להיום, נסה מועד מאוחר יותר...");
+                    } else {
+                        $rootScope.$broadcast('showTimePopup', {});
+                    }
+
                 } else {
                     return;
                 }
@@ -329,11 +336,11 @@
         console.log(selectedTime);
         // var phone = "0525675119";
 
-        if (!$scope.selectedApp.agentExt){
+        if (!$scope.selectedApp.agentExt) {
             $scope.selectedApp.agentExt = ""
         }
 
-        var xmlData = "<XmlTemplate><WebServiceURL>https://sec-phoneplus.com/DistributionWebService/DialerDistribution.asmx/ImportFromXml</WebServiceURL><TenantID>" + $scope.selectedTenant.tenantID + "</TenantID><TenantName>" + $scope.selectedTenant.name + "</TenantName><ApplicationID>" + $scope.selectedTenant.appID + "</ApplicationID><ApplicationVersion>1</ApplicationVersion><ApplicationName>" + $scope.selectedApp.name + "</ApplicationName><SecID>" + $scope.selectedTenant.secID + "</SecID><DialerRequestTime>" + selectedTime.toString('yyyy-MM-dd HH:mm:ss') + "</DialerRequestTime><PhoneNum>" + phone + "</PhoneNum><PhoneNum2></PhoneNum2><PhoneNum3></PhoneNum3><AgentExtNumber>" + $scope.selectedApp.agentExt + "</AgentExtNumber><Info1></Info1><Info2></Info2><Info3></Info3><Info4></Info4><Info5>SmartClick</Info5></XmlTemplate>";
+        var xmlData = "<XmlTemplate><WebServiceURL>https://sec-phoneplus.com/DistributionWebService/DialerDistribution.asmx/ImportFromXml</WebServiceURL><TenantID>" + $scope.selectedTenant.tenantID + "</TenantID><TenantName>" + $scope.selectedTenant.name + "</TenantName><ApplicationID>" + $scope.selectedTenant.appID + "</ApplicationID><ApplicationVersion>1</ApplicationVersion><ApplicationName>" + $scope.selectedApp.name + "</ApplicationName><SecID>" + $scope.selectedTenant.secID + "</SecID><DialerRequestTime>" + selectedTime.toString('yyyy-MM-dd HH:mm:ss') + "</DialerRequestTime><OutboundReasonID>2</OutboundReasonID><PhoneNum>" + phone + "</PhoneNum><PhoneNum2></PhoneNum2><PhoneNum3></PhoneNum3><AgentExtNumber>" + $scope.selectedApp.agentExt + "</AgentExtNumber><Info1></Info1><Info2></Info2><Info3></Info3><Info4></Info4><Info5>SmartClick</Info5></XmlTemplate>";
         // var xmlData = ﻿"<XmlTemplate><WebServiceURL>https://sec-phoneplus.com/DistributionWebService/MessageDistribution.asmx/ImportFromXml</WebServiceURL><TenantID>1289</TenantID><TenantName>תזכור קולי הדגמה אפיקים</TenantName><ApplicationID>3238</ApplicationID><ApplicationVersion>1</ApplicationVersion><ApplicationName>תזכור קולי הדגמה </ApplicationName><SecID>cf56f82b-9cf9-4398-a870-af2528c926cf</SecID><DistributionRequestTime>"+selectedTime.toString('yyyy-MM-dd HH:mm:ss')+"</DistributionRequestTime><OutboundReasonID>3</OutboundReasonID><AgentExtNumber></AgentExtNumber><TargetTelNumber1>0525675119</TargetTelNumber1><TargetTelNumber2></TargetTelNumber2><TargetTelNumber3></TargetTelNumber3><PPWSinfo1></PPWSinfo1><PPWSinfo2></PPWSinfo2><PPWSinfo3></PPWSinfo3><PPWSinfo4></PPWSinfo4><PPWSinfo5></PPWSinfo5><PPWSvoice2 Caption=\"date\">2015-05-28</PPWSvoice2><PPWSvoice4 Caption=\"day name\">2015-05-28</PPWSvoice4><PPWSvoice6 Caption=\"time\">10:00:00</PPWSvoice6><PPWSvoice8 Caption=\"time\">12:00:00</PPWSvoice8><PPWSvoice10 Caption=\"service number\">7788</PPWSvoice10></XmlTemplate>";
         console.log(xmlData);
 
@@ -363,6 +370,24 @@
                 console.log(jqXHR);
                 console.log(ajaxOptions);
                 console.log(thrownError);
+                var msgData = ﻿"<XmlTemplate><WebServiceURL>https://sec-phoneplus.com/DistributionWebService/MessageDistribution.asmx/ImportFromXml</WebServiceURL><TenantID>1884</TenantID><TenantName>סמראט פון משלוח סמס מאשר</TenantName><ApplicationID>4479</ApplicationID><ApplicationVersion>1</ApplicationVersion><ApplicationName>משלוח סמס מאשר</ApplicationName><SecID>ad663fb8-096f-4944-9b0b-46f9248f5c5f</SecID><DistributionRequestTime>" + new Date().toString('yyyy-MM-dd HH:mm:ss') + "</DistributionRequestTime><OutboundReasonID>4</OutboundReasonID><AgentExtNumber></AgentExtNumber><TargetTelNumber1>0544441892</TargetTelNumber1><TargetTelNumber2></TargetTelNumber2><TargetTelNumber3></TargetTelNumber3><PPWSinfo1></PPWSinfo1><PPWSinfo2></PPWSinfo2><PPWSinfo3></PPWSinfo3><PPWSinfo4></PPWSinfo4><PPWSinfo5></PPWSinfo5><PPWStext1 Caption=\"Free SMS\">התרחשה שגיאה באפליקציית סמארטקול. שם מוקד: " + $scope.selectedApp.name + ". Application ID: " + $scope.selectedTenant.appID + ". Tenant ID: " + $scope.selectedTenant.tenantID + "</PPWStext1></XmlTemplate>";
+                // send eli sms about the error
+                $.ajax({
+                    type: "POST",
+                    url: 'https://sec-phoneplus.com/DistributionWebService/MessageDistribution.asmx/ImportFromXml',
+                    data: msgData,
+                    success: function(jqXHR) {
+                        console.log('error sms sent');
+                    },
+                    error: function(jqXHR, ajaxOptions, thrownError) {
+
+                        console.log('error on sending error sms');
+
+                        console.log(jqXHR);
+                        console.log(ajaxOptions);
+                        console.log(thrownError);
+                    }
+                });
             }
         });
 

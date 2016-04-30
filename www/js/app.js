@@ -34,10 +34,10 @@ app.run(function ($ionicPlatform, $ionicPopup, $cordovaNetwork) {
     });
 })
 
-.config(function ($stateProvider, $urlRouterProvider) {
+.config(function ($stateProvider,$ionicConfigProvider, $urlRouterProvider) {
   // set default route to wizard
   var defaultRoute = '/app/intro';
-
+$ionicConfigProvider.views.transition('none');
   // check whether wizard has been run in order to change default route
   // we cannot inject ngStorage dependency in a config module, so we need to use plain localStorage object
   if (localStorage.getItem('ngStorage-myAppRun')) {

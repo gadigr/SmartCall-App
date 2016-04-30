@@ -34,11 +34,16 @@
                 scope.startTime = scope.inputObj.startTime ? scope.inputObj.startTime : Date.parse('00:00');
                 scope.endTime = scope.inputObj.endTime ? scope.inputObj.endTime : Date.parse('23:59');
 
+
                 scope.inputObj.updateWorkHours = function(start, end, subTitle) {
                     scope.startTime = start ? start : Date.parse('00:00');
                     scope.endTime = end ? end : Date.parse('23:59');
                     scope.subTitle = subTitle ? subTitle : '';
+
+
                 }
+
+
 
                 var obj = { epochTime: scope.inputEpochTime, step: scope.step, format: scope.format };
                 scope.time = { hours: 0, minutes: 0, meridian: "" };
@@ -115,7 +120,16 @@
                     if (typeof scope.inputObj.inputEpochTime === 'undefined' || scope.inputObj.inputEpochTime === null) {
                         objDate = new Date();
                     } else {
-                        objDate = new Date(scope.inputObj.inputEpochTime * 1000);
+                        objDate = new Date();
+
+                        if (scope.startTime > objDate) {
+                            objDate.setHours(scope.startTime.getHours());
+                        }
+
+                        if (scope.endTime < objDate){
+                            objDate.setHours(scope.endTime.getHours());
+                        }
+
                     }
                     //if (scope.inputObj.showPopup) {
                     if (obj.format == 12) {
@@ -171,8 +185,8 @@
 
                     } else if (obj.format == 24) {
 
-                        scope.time.hours = (objDate.getUTCHours());
-                        scope.time.minutes = (objDate.getUTCMinutes());
+                        scope.time.hours = (objDate.getHours());
+                        scope.time.minutes = 0;
 
                         scope.time.hours = (scope.time.hours < 10) ? ("0" + scope.time.hours) : (scope.time.hours);
                         scope.time.minutes = (scope.time.minutes < 10) ? ("0" + scope.time.minutes) : (scope.time.minutes);
@@ -197,8 +211,8 @@
                                         totalSec = scope.time.minutes * 60;
                                     }
                                     scope.etime = totalSec;
-                                    var theTime = Date.parse(scope.time.hours +":"+scope.time.minutes);
-                                    
+                                    var theTime = Date.parse(scope.time.hours + ":" + scope.time.minutes);
+
                                     if (theTime >= scope.startTime &&
                                         theTime <= scope.endTime) {
                                         scope.inputObj.callback(scope.etime);
