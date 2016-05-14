@@ -51,7 +51,11 @@
             $scope.search.txt = '';
         } else {
             $timeout(function() {
-                document.getElementById('search_text').focus();
+                //document.getElementById('search_text').focus();
+				var inputs = document.querySelectorAll(".search_text");
+				for (var i = 0; i < inputs.length; i++) {
+					inputs[i].focus()
+				}
             });
         }
     };
