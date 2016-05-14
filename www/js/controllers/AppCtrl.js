@@ -18,6 +18,19 @@
         }
 	};
 	
+	$scope.openBrowser = function() {
+		 $cordovaInAppBrowser.open('http://www.smartcall.co.il', '_system', { location: "yes" })
+            .then(function(event) {
+                // success
+
+            })
+            .catch(function(event) {
+                // error
+
+            });
+
+	};
+	
     var navIcons = document.getElementsByClassName('ion-navicon');
     for (var i = 0; i < navIcons.length; i++) {
         navIcons.addEventListener('click', function () {

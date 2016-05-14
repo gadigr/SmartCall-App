@@ -351,7 +351,7 @@
                 console.log(thrownError);
                 var msgData = ﻿"<XmlTemplate><WebServiceURL>https://sec-phoneplus.com/DistributionWebService/MessageDistribution.asmx/ImportFromXml</WebServiceURL><TenantID>1884</TenantID><TenantName>סמראט פון משלוח סמס מאשר</TenantName><ApplicationID>4479</ApplicationID><ApplicationVersion>1</ApplicationVersion><ApplicationName>משלוח סמס מאשר</ApplicationName><SecID>ad663fb8-096f-4944-9b0b-46f9248f5c5f</SecID><DistributionRequestTime>" + new Date().toString('yyyy-MM-dd HH:mm:ss') + "</DistributionRequestTime><OutboundReasonID>4</OutboundReasonID><AgentExtNumber></AgentExtNumber><TargetTelNumber1>0544441892</TargetTelNumber1><TargetTelNumber2></TargetTelNumber2><TargetTelNumber3></TargetTelNumber3><PPWSinfo1></PPWSinfo1><PPWSinfo2></PPWSinfo2><PPWSinfo3></PPWSinfo3><PPWSinfo4></PPWSinfo4><PPWSinfo5></PPWSinfo5><PPWStext1 Caption=\"Free SMS\">התרחשה שגיאה באפליקציית סמארטקול. שם מוקד: " + $scope.selectedApp.name + ". Application ID: " + $scope.selectedTenant.appID + ". Tenant ID: " + $scope.selectedTenant.tenantID + "</PPWStext1></XmlTemplate>";
                 // send eli sms about the error
-                $.ajax({
+                /*$.ajax({
                     type: "POST",
                     url: 'https://sec-phoneplus.com/DistributionWebService/MessageDistribution.asmx/ImportFromXml',
                     data: msgData,
@@ -366,7 +366,7 @@
                         console.log(ajaxOptions);
                         console.log(thrownError);
                     }
-                });
+                });*/
             }
         });
 

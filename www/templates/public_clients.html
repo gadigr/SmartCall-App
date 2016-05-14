@@ -16,11 +16,11 @@
   </ion-refresher>
 	<button class="button button-icon button-clear ion-navicon add-private-app" ng-click="addPrivateApp()" ng-show="isPrivate">+</button>
 	<div>
-		<a href="http://www.smartcall.co.il/" target="blank"><div class="logo" ng-click="openBrowser()"></div></a>
+		<a href="http://www.smartcall.co.il/" target="_blank"><div class="logo" ng-click="openBrowser()"></div></a>
 	</div>
 	<div class="bar-top" dir="rtl">
-        <a class="button button-clear button-footer" ng-class="{true:'', false:'selected'}[isPrivate]" href="#/app/clients/true">אזור אישי</a>
-        <a class="button button-clear button-footer" ng-class="{true:'selected', false:''}[isPrivate]" href="#/app/clients/false">אזור ציבורי</a>
+        <a class="button button-clear button-footer" ng-class="{true:'', false:'selected'}[isPrivate]" href="#/app/clients/true">קליק אישי</a>
+        <a class="button button-clear button-footer" ng-class="{true:'selected', false:''}[isPrivate]" href="#/app/clients/false">שיחה בקליק</a>
     </div>
 	<div class='search'>
 		<input id="search_text" type="text" ng-show="search.show" ng-model="search.txt" dir="rtl" />
