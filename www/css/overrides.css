@@ -226,6 +226,14 @@ display: block;
     margin: 0 auto;
 }
 
+.no-edge {
+	padding: 2px;
+}
+
+.no-edge img {
+	border-radius: 50%;
+}
+
 .menu .avatar {
     border-radius: 0;
     margin: 7px auto;

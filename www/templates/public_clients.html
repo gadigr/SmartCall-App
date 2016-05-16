@@ -29,7 +29,7 @@
     <div class="row gallery" layout layout-wrap layout-align="center" >
       <div class="card  card-item"  ng-click="showTenantsPopup(item)" ng-repeat="item in items | filter: { name: search.txt }" ng-last-repeat="clientlist" >
 
-			<div class="box" >
+			<div class="box" ng-class="item.hideEdge ? 'no-edge' : ''" >
 			  <img ng-src="{{item.image ? item.image : 'img/phone.png'}}">
 			</div>
 			<p>{{item.name}}</p>
