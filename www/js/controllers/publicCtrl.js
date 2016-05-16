@@ -1,4 +1,4 @@
-﻿app.controller('publicCtrl', function($scope, $cordovaToast, ionicDatePicker, $ionicLoading, $cordovaKeyboard, $rootScope, $cordovaNetwork, $ionicPopup, $state, ionicMaterialInk, $timeout, ClientsService, $localStorage) {
+﻿app.controller('publicCtrl', function($scope,$cordovaInAppBrowser,  $cordovaToast, ionicDatePicker, $ionicLoading, $cordovaKeyboard, $rootScope, $cordovaNetwork, $ionicPopup, $state, ionicMaterialInk, $timeout, ClientsService, $localStorage) {
 
     ionicMaterialInk.displayEffect();
 
@@ -37,7 +37,7 @@
             })
             .catch(function(event) {
                 // error
-
+                $cordovaToast.showShortBottom("בעיה עם דפדפן");
             });
 
 
@@ -158,7 +158,7 @@
             weeksList: ["א'", "ב'", "ג'", "ד'", "ה'", "ו'", "ש'"], //Optional
             monthsList: ["יאנ", "פבר", "מרץ", "אפר", "מאי", "יונ", "יול", "אוג", "ספט", "אוק", "נוב", "דצמ"], //Optional
             templateType: 'popup', //Optional
-            showTodayButton: 'true', //Optional
+            showTodayButton: false, //Optional
             disableWeekdays: workdays,
             modalHeaderColor: 'bar-positive', //Optional
             modalFooterColor: 'bar-positive', //Optional from: Date.today().setTimeToNow().add({days:-1}), //Optional
@@ -176,9 +176,9 @@
                     }
 
                     if ($scope.selectedDate.isSameDay(new Date()) &&
-                        new Date().getHours() > Date.parse(workday.end).getHours() &&
+                        new Date().getHours() >= Date.parse(workday.end).getHours() &&
                         new Date().getMinutes() > Date.parse(workday.end).getMinutes()) {
-                        $cordovaToast.showShortBottom("לא ניתן לתאם שיחה להיום, נסה מועד מאוחר יותר...");
+                        $cordovaToast.showShortBottom("לא ניתן להזמין שיחה למועד הנבחר, אנא בחרו יום אחר");
                     } else {
                         $rootScope.$broadcast('showTimePopup', {});
                     }
